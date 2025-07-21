@@ -2,14 +2,16 @@
     padding: 0.8rem 1.5rem;
     background-color: var(--color-accent);
     border: none;
-    color: black;
+    color: var(--color-bg-dark);
     font-weight: bold;
-    font-family: var(--font-primary);
+    font-family: var(--color-text-light);
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
   .btn:hover {
-    background-color: var(--color-accent-alt);
+    background-color: var(
+      --color-text-light, 
+    );
   }
   

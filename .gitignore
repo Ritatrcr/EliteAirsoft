@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Optional cache files
+.cache/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+
+# VSCode settings (opcional)
+.vscode/
+
+# MacOS files (opcional)
+.DS_Store
+
+# Logs
+logs
+*.log
