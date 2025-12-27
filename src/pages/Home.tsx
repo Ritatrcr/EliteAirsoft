@@ -6,6 +6,8 @@ import Town from '../assets/images/EliteTown.png';
 import CQB from '../assets/images/CQV.png';
 import Mira from '../assets/images/Mira.png';
 import Background from '../assets/images/background.png'; 
+import MobileBackground from '../assets/images/Mobile.png';
+
 
 const Home = () => {
   return (
@@ -22,11 +24,12 @@ const Home = () => {
           align-items: center;
           text-align: center;
           width: 100vw;
-          height: 600px;
+          height: 700px;
           margin-left: calc(-50vw + 50%);
           position: relative;
           z-index: 1;
           overflow: hidden;
+          
         }
 
         .home__hero::before {
@@ -51,7 +54,7 @@ const Home = () => {
           object-fit: contain;
           display: block;
           position: relative;
-          z-index: 1;
+          z-index: 9999;
         }
 
         .home__content {
@@ -103,7 +106,7 @@ const Home = () => {
           bottom: -100px;
           left: 0;
           width: 150px; 
-          z-index: 1;
+          z-index: 9999;
         }
 
         @media (min-width: 768px) {
@@ -117,6 +120,117 @@ const Home = () => {
             margin-left: 2rem;
           }
         }
+
+        /* =========================
+   MOBILE ONLY (no toca desktop)
+   ========================= */
+
+@media (max-width: 767px) {
+
+  .home__hero {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    min-height: 82vh;
+
+    padding-top: 7.25rem;
+    padding-left: 0;
+    padding-right: 0;
+
+    gap: 1.25rem;
+  }
+
+  /* CAMBIO REAL: aquí sí se sobreescribe la imagen para mobile */
+  .home__hero::before {
+    background-image: url(${MobileBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
+
+  .home__hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(closest-side at 60% 35%, rgba(0,0,0,0.12), rgba(0,0,0,0.70)),
+      linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.70));
+  }
+
+  .home__banner,
+  .home__content {
+    z-index: 2;
+    position: relative;
+  }
+
+  .home__banner {
+    width: min(62%, 420px);
+    margin: 0;
+    padding-top: 4rem;
+    padding-left: 0;
+    position: relative;
+    filter: drop-shadow(0 16px 30px rgba(0,0,0,0.35));
+  }
+
+  .home__content {
+    max-width: 560px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    text-align: center;
+  }
+
+  .home__title-bottom {
+    font-size: clamp(2.05rem, 9vw, 2.65rem);
+    line-height: 1.03;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.55);
+  }
+
+  .home__content p {
+    margin: 0;
+    padding-top: 0.85rem;
+    padding-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    opacity: 0.95;
+  }
+
+  .home__content .btn {
+    width: min(340px, 100%);
+  }
+
+  /* Mira: izquierda, más arriba, debajo del contenido */
+  .home__mira {
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    width: 130px;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+    margin: 0;
+  }
+
+  /* Campos (si también quieres que se vean mejor en móvil) */
+  .home__section {
+    padding: 2.5rem 1rem 3.25rem;
+  }
+
+  .home__fields {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .home__fields > * {
+    width: min(420px, 92vw);
+  }
+}
+
+
       `}</style>
 
       <div className="home__hero">
