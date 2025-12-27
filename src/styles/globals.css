@@ -48,7 +48,6 @@
 
 /* Cada “pantalla” */
 .screen {
-  height: 100vh;
   scroll-snap-align: start;
 
   /* Para que el contenido no quede tapado por el navbar fijo */

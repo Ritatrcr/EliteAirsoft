@@ -1,5 +1,4 @@
 import Button from '../components/UI/Button';
-
 import Banner from '../assets/images/Banner.png';
 
 import Mira from '../assets/images/Mira.png';
@@ -90,14 +89,6 @@ const Home = () => {
           text-align: center;
         }
 
-        .home__fields {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1rem;
-          margin-top: 2rem;
-        }
 
         .home__mira {
           position: absolute;
@@ -166,7 +157,7 @@ const Home = () => {
   .home__banner {
     width: min(62%, 420px);
     margin: 0;
-    padding-top: 4rem;
+    padding-top: 1rem;
     padding-left: 0;
     position: relative;
     filter: drop-shadow(0 16px 30px rgba(0,0,0,0.35));
@@ -251,10 +242,9 @@ const Home = () => {
         </div>
         <img src={Mira} alt="Mira decorativa" className="home__mira" />
       </div>
-
       
     </section>
   );
-};
+}
 
 export default Home;
