@@ -27,4 +27,45 @@
     max-width: 1200px;
     margin: auto;
   }
-  
+  html, body, #root {
+  height: 100%;
+}
+
+/* Ajusta este valor según el alto real de tu navbar */
+:root {
+  --navbar-height: 92px;
+}
+
+.app-scroll {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+
+  /* Ayuda a que el snap/scroll tenga en cuenta el navbar fijo */
+  scroll-padding-top: var(--navbar-height);
+}
+
+/* Cada “pantalla” */
+.screen {
+  height: 100vh;
+  scroll-snap-align: start;
+
+  /* Para que el contenido no quede tapado por el navbar fijo */
+  padding-top: var(--navbar-height);
+  display: flex;
+  align-items: center;
+}
+/* Alternado claro/oscuro para distinguir secciones */
+.screen:nth-of-type(odd) {
+  background-color: var(--color-bg-dark);
+}
+
+.screen:nth-of-type(even) {
+  background-color: var(--color-bg);
+}
+
+/* Opcional: un separador sutil */
+.screen {
+  border-bottom: 1px solid rgba(167, 141, 102, 0.25);
+}

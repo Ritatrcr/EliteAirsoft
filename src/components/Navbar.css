@@ -25,15 +25,22 @@
     justify-content: center;
   }
   
-  .navbar__links a {
-    font-weight: 700;
-    color: var(--color-accent);
-    transition: color 0.3s;
-  }
-  
-  .navbar__links a:hover {
-    color: var(--color-text-light);
-  }
+  .navbar__links button {
+  font-weight: 700;
+  color: var(--color-accent);
+  transition: color 0.3s;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+ }
+
+.navbar__links button:hover {
+  color: var(--color-text-light);
+}
+
   
   @media (min-width: 768px) {
     .navbar {

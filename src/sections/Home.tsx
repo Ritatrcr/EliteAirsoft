@@ -1,9 +1,7 @@
 import Button from '../components/UI/Button';
-import Card from '../components/UI/Card';
+
 import Banner from '../assets/images/Banner.png';
-import Fortaleza from '../assets/images/LaFortaleza.png';
-import Town from '../assets/images/EliteTown.png';
-import CQB from '../assets/images/CQV.png';
+
 import Mira from '../assets/images/Mira.png';
 import Background from '../assets/images/background.png'; 
 import MobileBackground from '../assets/images/Mobile.png';
@@ -254,14 +252,7 @@ const Home = () => {
         <img src={Mira} alt="Mira decorativa" className="home__mira" />
       </div>
 
-      <div className="home__section">
-        <h2>NUESTROS CAMPOS</h2>
-        <div className="home__fields">
-          <Card title="La Fortaleza" description="" image={Fortaleza} />
-          <Card title="Elite Town" description="" image={Town} />
-          <Card title="Campo Cubierto CQV" description="" image={CQB} />
-        </div>
-      </div>
+      
     </section>
   );
 };

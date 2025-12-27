@@ -1,12 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import React from 'react';
 import Navbar from './Navbar';
 
-const Layout = () => {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Navbar />
-      <main className="container">
-        <Outlet />
+      <main className="app-scroll">
+        {children}
       </main>
     </>
   );
