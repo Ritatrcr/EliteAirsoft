@@ -21,7 +21,7 @@ const Home = () => {
           align-items: center;
           text-align: center;
           width: 100vw;
-          height: 700px;
+          height: 750px;
           margin-left: calc(-50vw + 50%);
           position: relative;
           z-index: 1;

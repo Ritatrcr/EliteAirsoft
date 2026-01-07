@@ -13,10 +13,10 @@ const Principal = () => {
 
       {/* CAMPOS (Navbar -> #campos) */}
       <section id="campos" className="screen">
-        <div className="container">
+       
           
             <Campos></Campos>
-        </div>
+        
       </section>
 
       <section className="screen">

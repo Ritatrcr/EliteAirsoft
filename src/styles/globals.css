@@ -19,11 +19,12 @@
   img {
     max-width: 100%;
     height: auto;
+    bottom: vw;
   }
   
   /* Responsividad general */
   .container {
-    width: 90%;
+    width:90%;
     max-width: 1200px;
     margin: auto;
   }
@@ -46,25 +47,29 @@
   scroll-padding-top: var(--navbar-height);
 }
 
-/* Cada “pantalla” */
-.screen {
-  scroll-snap-align: start;
 
-  /* Para que el contenido no quede tapado por el navbar fijo */
-  padding-top: var(--navbar-height);
-  display: flex;
-  align-items: center;
-}
 /* Alternado claro/oscuro para distinguir secciones */
-.screen:nth-of-type(odd) {
+.screen:nth-of-type(even) {
   background-color: var(--color-bg-dark);
 }
 
-.screen:nth-of-type(even) {
+.screen:nth-of-type(odd) {
   background-color: var(--color-bg);
 }
 
-/* Opcional: un separador sutil */
-.screen {
+html, body, #root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.screen{
+   scroll-snap-align: start;
+  width: 100%;
+  padding-top: 40px;      /* <- elimina la franja verde */
+  padding-bottom: rem;         /* opcional: separación entre secciones */
   border-bottom: 1px solid rgba(167, 141, 102, 0.25);
+  display: block;
+  align-items: center;
 }
