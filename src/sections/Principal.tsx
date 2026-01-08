@@ -1,5 +1,6 @@
 import Home from "./Home";
 import Campos from "./Campos";
+import Equipamiento from "./Equipamiento";
 const Principal = () => {
   return (
     <>
@@ -27,9 +28,9 @@ const Principal = () => {
       </section>
 
       <section className="screen">
-        <div className="container">
-          <h1>Campos (Sección 3 por definir)</h1>
-        </div>
+        
+         <Equipamiento></Equipamiento>
+        
       </section>
 
       {/* PLANES (Navbar -> #planes) */}
