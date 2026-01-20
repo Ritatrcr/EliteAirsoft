@@ -34,12 +34,7 @@ const Principal = () => {
       </section>
 
       {/* PLANES (Navbar -> #planes) */}
-      <section id="planes" className="screen">
-        <div className="container">
-          <h1>Precios por persona / Qué incluye</h1>
-          <p>(MERCHITO)</p>
-        </div>
-      </section>
+      
 
       <section className="screen">
         <div className="container">
@@ -55,11 +50,7 @@ const Principal = () => {
         </div>
       </section>
 
-      <section className="screen">
-        <div className="container">
-          <h1>Partidas abiertas (¿Quieres venir solo?)</h1>
-        </div>
-      </section>
+     
 
       {/* SOBRE NOSOTROS (Navbar -> #sobre-nosotros) */}
       <section id="sobre-nosotros" className="screen">
