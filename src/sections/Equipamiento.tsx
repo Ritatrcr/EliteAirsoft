@@ -62,25 +62,26 @@ const Equipamiento: React.FC = () => {
     };
   }, [mode]);
 
-  const pricing = useMemo(() => {
-    if (mode === "individual") {
-      return (
-        <>
-          <strong>$ 25.000 COP/hora</strong> incluye todo el equipamiento.
-          <br />
-          <strong>$ 15.000 COP/hora</strong> si traes tu propio equipo.
-        </>
-      );
-    }
+    // const pricing = useMemo(() => {
+    //   if (mode === "individual") {
+    //     return (
+    //       <>
+    //         <strong>$ 25.000 COP/hora</strong> incluye todo el equipamiento.
+    //         <br />
+    //         <strong>$ 15.000 COP/hora</strong> si traes tu propio equipo.
+    //       </>
+    //     );
+    //   }
 
-    return (
-      <>
-        <strong>$ 32.000 COP</strong> (1 hora) incluye todo el equipamiento.
-        <br />
-        <strong>$ 56.000 COP</strong> (2 horas) incluye todo el equipamiento.
-      </>
-    );
-  }, [mode]);
+    //   return (
+    //     <>
+    //       <strong>$ 32.000 COP</strong> (1 hora) incluye todo el equipamiento.
+    //       <br />
+    //       <strong>$ 56.000 COP</strong> (2 horas) incluye todo el equipamiento.
+    //     </>
+    //   );
+    // }
+    // , [mode]);
 
   const cta = useMemo(() => {
     if (mode === "individual") {
@@ -117,7 +118,7 @@ const Equipamiento: React.FC = () => {
               </div>
 
               <div className="equip-left__footer">
-                <p className="equip-left__note">{pricing}</p>
+                {/* <p className="equip-left__note">{pricing}</p> */}
 
                 <a
                   className={`equip-cta ${cta.isWhatsApp ? "is-whatsapp" : ""}`}
