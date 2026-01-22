@@ -1,6 +1,7 @@
 import Home from "./Home";
 import Campos from "./Campos";
 import Equipamiento from "./Equipamiento";
+import Opiniones from "./Opiniones";
 const Principal = () => {
   return (
     <>
@@ -69,8 +70,7 @@ const Principal = () => {
 
       <section className="screen">
         <div className="container">
-          <h1>Dónde queda (Maps) + Horarios</h1>
-          <p>(RITA)</p>
+            <Opiniones />
         </div>
       </section>
 
