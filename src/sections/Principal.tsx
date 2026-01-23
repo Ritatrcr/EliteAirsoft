@@ -2,6 +2,7 @@ import Home from "./Home";
 import Campos from "./Campos";
 import Equipamiento from "./Equipamiento";
 import Opiniones from "./Opiniones";
+import InstagramSection from "./Instagram";
 const Principal = () => {
   return (
     <>
@@ -62,9 +63,9 @@ const Principal = () => {
       </section>
 
       <section className="screen">
-        <div className="container">
-          <h1>Comunidad: Instagram + reseñas Google Maps</h1>
-          <p>(RITA)</p>
+        <div className="container">         
+           <InstagramSection></InstagramSection>
+
         </div>
       </section>
 
