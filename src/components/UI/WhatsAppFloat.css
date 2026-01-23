@@ -1,0 +1,211 @@
+.wa-float {
+  --wa-size: 72px;
+
+  --wa-left: 0rem;
+  --wa-right: 2rem;
+
+  --wa-bottom: 3rem;
+
+  --wa-gold: #a78d66;
+
+  position: fixed;
+  z-index: 9999;
+  bottom: var(--wa-bottom);
+  animation: waFloat 2.2s ease-in-out infinite;
+}
+
+.wa-float--left { left: var(--wa-left); }
+.wa-float--right { right: var(--wa-right); }
+
+@keyframes waFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.wa-list { list-style: none; margin: 0; padding: 0; }
+.wa-item { position: relative; }
+
+.wa-link {
+  position: relative;
+  width: var(--wa-size);
+  height: var(--wa-size);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wa-link::after {
+  content: "";
+  position: absolute;
+
+  /* Antes: inset: -18px (eso lo separa). Ahora pegado: */
+  inset: 0;
+
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -2;
+
+  /* Sombras que nacen desde el borde */
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--wa-gold) 40%, transparent 60%),
+    0 10px 26px var(--wa-gold),
+    0 0 26px 6px color-mix(in srgb, var(--wa-gold) 22%, transparent 78%);
+
+  opacity: 0.5;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Ring tecnológico girando (igual) */
+.wa-link::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.12),
+    color-mix(in srgb, var(--color-accent) 70%, var(--wa-gold) 30%),
+    rgba(255, 255, 255, 0.1),
+    color-mix(in srgb, var(--color-accent) 55%, #d6b46c 45%),
+    rgba(255, 255, 255, 0.12)
+  );
+
+  opacity: 0.7;
+  filter: blur(0.2px);
+  animation: waSpin 3.2s linear infinite;
+
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 4px),
+    #000 calc(100% - 3px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 4px),
+    #000 calc(100% - 3px)
+  );
+}
+
+@keyframes waSpin { to { transform: rotate(360deg); } }
+
+/* Inner recorta el filled */
+.wa-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-bg-dark) 64%, #000 36%),
+    color-mix(in srgb, var(--color-bg-dark) 86%, #000 14%)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: color-mix(in srgb, var(--color-accent) 70%, var(--wa-gold) 30%);
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease,
+    color 0.25s ease;
+}
+
+.wa-icon {
+  position: relative;
+  z-index: 1;
+  width: calc(var(--wa-size) * 0.52);
+  height: calc(var(--wa-size) * 0.52);
+}
+
+.wa-filled {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-accent) 80%, var(--wa-gold) 20%),
+    color-mix(in srgb, var(--color-accent) 55%, #7b5a1e 45%)
+  );
+  transition: height 0.25s ease-in-out;
+}
+
+.wa-tooltip {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 11px;
+  border-radius: 12px;
+  color: var(--color-text-light);
+  background: color-mix(in srgb, var(--color-bg-dark) 86%, black 14%);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 55%, var(--wa-gold) 45%);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.wa-link:hover .wa-tooltip,
+.wa-link:focus-visible .wa-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -58px;
+}
+
+.wa-link:hover .wa-inner,
+.wa-link:focus-visible .wa-inner {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.06);
+  color: var(--color-text-light);
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(255, 255, 255, 0.10) inset;
+}
+
+.wa-link:hover .wa-filled,
+.wa-link:focus-visible .wa-filled {
+  height: 100%;
+}
+
+/* En hover, refuerza el shadow sin separarlo del borde */
+/* En hover: PAUSAR la animación del borde (ring girando) */
+.wa-link:hover::before,
+.wa-link:focus-visible::before {
+  animation-play-state: paused;
+}
+
+
+@media (max-width: 480px) {
+  .wa-float {
+    --wa-size: 64px;
+    --wa-left: 0.5rem;
+    --wa-bottom: 3.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { animation: none; }
+  .wa-link::before { animation: none; }
+  .wa-link::after,
+  .wa-inner,
+  .wa-tooltip,
+  .wa-filled { transition: none; }
+}
