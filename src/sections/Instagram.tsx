@@ -31,9 +31,9 @@ const IG_INFO = {
   followers: 2504,
   following: 303,
   bullets: [
-    "El campo de airsoft más completo de Colombia",
-    "Ubicado en la ciudad de FUNZA",
-    "¿Estás listo para el desafío?",
+    "🔱 El campo de airsoft más completo de Colombia🇨🇴",
+    "🔱 Ubicado en la ciudad de FUNZA🔥",
+    "🔱 ¿Estás listo para el desafío?",
   ],
   phone: "3057668729",
 };
@@ -279,9 +279,9 @@ export default function InstagramSection() {
 
               <div className="ig-infoActions">
                 <a className="ig-infoBtn ig-infoBtn--primary" href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noreferrer">
-                  Abrir Instagram
+                  ¡Síguenos en Instagram!
                 </a>
-
+                
              
               </div>
 
