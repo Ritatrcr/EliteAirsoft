@@ -166,39 +166,57 @@ function ReviewCard({ review }: { review: Review }) {
   const shouldShowPhotos = photos.length > 0 && expanded;
 
   return (
-    <article className="review-card">
-      <header className="review-head">
-        <div className="review-head-left">
-          <Avatar author={review.author} avatarUrl={review.avatarUrl} />
-          <div className="review-author">
-            <div className="review-author__name">{review.author}</div>
-            {review.authorMeta ? <div className="review-author__meta">{review.authorMeta}</div> : null}
-          </div>
+     <article
+    className="review-card"
+    onClick={() => {
+      if (!review.googleMapsReviewUrl) return;
+      window.open(review.googleMapsReviewUrl, "_blank", "noopener,noreferrer");
+    }}
+    role="link"
+    tabIndex={0}
+    onKeyDown={(e) => {
+      if (!review.googleMapsReviewUrl) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.open(review.googleMapsReviewUrl, "_blank", "noopener,noreferrer");
+      }
+    }}
+  >
+    <header className="review-head">
+      <div className="review-head-left">
+        <Avatar author={review.author} avatarUrl={review.avatarUrl} />
+        <div className="review-author">
+          <div className="review-author__name">{review.author}</div>
+          {review.authorMeta ? (
+            <div className="review-author__meta">{review.authorMeta}</div>
+          ) : null}
         </div>
-<GoogleReviewButton href={review.googleMapsReviewUrl} />
-      </header>
-
-      <div className="review-subhead">
-        <Stars value={review.rating} />
-        <span className="review-date">{review.dateLabel}</span>
       </div>
 
-      <p className="review-text">{text}</p>
+      <GoogleReviewButton href={review.googleMapsReviewUrl} />
+    </header>
 
-      {shouldShowPhotos ? (
-        <div className={photoClass}>
-          {photos.slice(0, 2).map((src, idx) => (
-            <img
-              key={idx}
-              className="review-photo"
-              src={src}
-              alt={`Foto ${idx + 1} de la reseña`}
-              loading="lazy"
-            />
-          ))}
-        </div>
-      ) : null}
-    </article>
+    <div className="review-subhead">
+      <Stars value={review.rating} />
+      <span className="review-date">{review.dateLabel}</span>
+    </div>
+
+    <p className="review-text">{text}</p>
+
+    {shouldShowPhotos ? (
+      <div className={photoClass}>
+        {photos.slice(0, 2).map((src, idx) => (
+          <img
+            key={idx}
+            className="review-photo"
+            src={src}
+            alt={`Foto ${idx + 1} de la reseña`}
+            loading="lazy"
+          />
+        ))}
+      </div>
+    ) : null}
+  </article>
   );
 }
 

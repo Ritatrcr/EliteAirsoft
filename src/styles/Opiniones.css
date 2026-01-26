@@ -459,17 +459,16 @@
   place-items: center;
 
 
-  text-decoration: none;
-  transition: transform 120ms ease, background 120ms ease, opacity 120ms ease;
+  
 }
 
-.google-btn:hover{
-  background: rgba(255,255,255,0.06);
-  transform: translateY(-1px);
-  opacity: 1;
+
+.review-card{
+  cursor: pointer;
+  transition: transform 180ms ease;
 }
 
-.google-btn:active{
-  transform: translateY(0px);
-  opacity: 0.95;
+.review-card:hover{
+  transform: scale(1.02);
 }
+

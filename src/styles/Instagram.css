@@ -233,6 +233,9 @@
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: transform 150ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ig-miniBtn:hover { transform: scale(1.05); }
@@ -260,8 +263,9 @@
 }
 
 .ig-progress.is-running {
-  animation: igProgress var(--ig-dur, 6500ms) linear infinite;
+  animation: igProgress var(--ig-dur, 6500ms) linear forwards;
 }
+
 
 @keyframes igProgress {
   from { width: 0%; }
@@ -594,5 +598,16 @@
   object-fit: cover;
   border: 2px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+
+.ig-miniBtn{
+  color: var(--color-accent);
+}
+
+.ig-miniBtn svg{
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 

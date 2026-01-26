@@ -6,8 +6,10 @@ import Button from "../components/UI/Button"; // ✅ ajusta la ruta si tu Button
 
 // ✅ Reemplaza estos imports por tus videos reales
 import Story01 from "../assets/videos/instagram/story01.mov";
-import Story02 from "../assets/videos/instagram/story02.mov";
+import Story02 from "../assets/videos/instagram/story02.mp4";
 import Story03 from "../assets/videos/instagram/story03.mov";
+import { FiVolumeX, FiVolume2 } from "react-icons/fi";
+
 
 // ✅ OPCIONAL: pon una foto de perfil local (recomendado)
 // y descomenta el import.
@@ -19,7 +21,11 @@ type Story = {
   label?: string;
   src: string;
   durationMs?: number;
+  url: string; // ✅
 };
+
+
+
 
 const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/elite_airsoft_col/";
 
@@ -53,10 +59,10 @@ function formatNumber(n: number) {
 export default function InstagramSection() {
   const stories: Story[] = useMemo(
     () => [
-      { id: "s1", user: IG_INFO.handle, label: "CQB", src: Story01, durationMs: 6500 },
-      { id: "s2", user: IG_INFO.handle, label: "Team", src: Story02, durationMs: 6500 },
-      { id: "s3", user: IG_INFO.handle, label: "Campo", src: Story03, durationMs: 6500 },
-    ],
+  { id: "s1", user: IG_INFO.handle, label: "CQB", src: Story01, durationMs: 6500, url: INSTAGRAM_PROFILE_URL },
+  { id: "s2", user: IG_INFO.handle, label: "Dinámicas", src: Story02, durationMs: 6500, url: INSTAGRAM_PROFILE_URL },
+  { id: "s3", user: IG_INFO.handle, label: "Gelsoft", src: Story03, durationMs: 6500, url: "https://www.instagram.com/p/DRnzc8kjW0P/" },
+  ],
     []
   );
 
@@ -67,6 +73,77 @@ export default function InstagramSection() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [inView, setInView] = useState(false);
+
+  const SoundIcon = ({ muted }: { muted: boolean }) => {
+  return muted ? (
+    // Muted
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M11 5 6 9H2v6h4l5 4V5z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m23 9-6 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m17 9 6 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ) : (
+    // Sound on
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M11 5 6 9H2v6h4l5 4V5z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15.5 8.5a5 5 0 0 1 0 7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M19 5a10 10 0 0 1 0 14"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+useEffect(() => {
+  if (!inView) return;
+
+  const dur = Math.max(1500, stories[active]?.durationMs ?? 6500);
+  const t = window.setTimeout(() => {
+    setActive((a) => clampIndex(a + 1, stories.length));
+  }, dur);
+
+  return () => window.clearTimeout(t);
+}, [active, inView, stories]);
 
   useEffect(() => {
     if (!stageRef.current) return;
@@ -158,7 +235,13 @@ export default function InstagramSection() {
                       type="button"
                       className="ig-card"
                       data-pos={pos}
-                      onClick={() => setActive(i)}
+                    onClick={() => {
+                      if (i === active) {
+                        window.open(stories[i].url, "_blank", "noopener,noreferrer");
+                      } else {
+                        setActive(i);
+                      }
+                    }}
                       role="listitem"
                       aria-current={isActive ? "true" : "false"}
                     >
@@ -184,8 +267,10 @@ export default function InstagramSection() {
                                 aria-label={muted ? "Activar sonido" : "Silenciar"}
                                 title={muted ? "Activar sonido" : "Silenciar"}
                               >
-                                {muted ? "🔇" : "🔊"}
+                                {muted ? <FiVolumeX /> : <FiVolume2 />}
                               </button>
+
+
                             ) : (
                               <span className="ig-miniGhost" aria-hidden="true" />
                             )}
@@ -214,7 +299,6 @@ export default function InstagramSection() {
 
                         <div className="ig-footer">
                           <span className="ig-hint">
-                            {isActive ? "Click en otra tarjeta o usa ← →" : "Click para abrir"}
                           </span>
                         </div>
                       </div>
