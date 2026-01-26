@@ -1,6 +1,7 @@
 import Home from "./Home";
 import Campos from "./Campos";
 import Equipamiento from "./Equipamiento";
+import Plans from "./Plans";
 const Principal = () => {
   return (
     <>
@@ -38,17 +39,11 @@ const Principal = () => {
 
       <section className="screen">
         <div className="container">
-          <h1>Planes Airsoft (Combos)</h1>
-          <p>(MERCHITO)</p>
+          <Plans></Plans>
         </div>
       </section>
 
-      <section className="screen">
-        <div className="container">
-          <h1>Planes Gelsoft</h1>
-          <p>(RITA)</p>
-        </div>
-      </section>
+      
 
      
 

@@ -66,9 +66,7 @@ const Equipamiento: React.FC = () => {
     if (mode === "individual") {
       return (
         <>
-          <strong>$ 25.000 COP/hora</strong> incluye todo el equipamiento.
-          <br />
-          <strong>$ 15.000 COP/hora</strong> si traes tu propio equipo.
+         
         </>
       );
     }
