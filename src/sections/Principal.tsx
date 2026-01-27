@@ -3,11 +3,20 @@ import Campos from "./Campos";
 import Equipamiento from "./Equipamiento";
 import Opiniones from "./Opiniones";
 import InstagramSection from "./Instagram";
+import WhatsAppFloat from "../components/UI/WhatsAppFloat";
+
 const Principal = () => {
   return (
     <>
       {/* OPCIONAL: una sección de inicio no clickeable */}
       <section className="screen">
+        <WhatsAppFloat
+  phone="573001112233"
+  text="Hola, quiero info de planes."
+  tooltip="Escríbenos"
+  side="right"
+/>
+    
         <div className="container">
           
         <Home></Home>
@@ -89,6 +98,8 @@ const Principal = () => {
         </div>
       </section>
     </>
+
+    
   );
 };
 
