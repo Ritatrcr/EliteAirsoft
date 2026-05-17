@@ -4,6 +4,7 @@ import Banner from '../assets/images/Banner.png';
 import Mira from '../assets/images/Mira.png';
 import Background from '../assets/images/background.png'; 
 import MobileBackground from '../assets/images/Mobile.png';
+import { openReservationModal } from './Reservas';
 
 
 const Home = () => {
@@ -232,12 +233,7 @@ const Home = () => {
           </p>
           <Button
             text="RESERVA YA!"
-            onClick={() =>
-              window.open(
-                'https://wa.me/573057668729?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Elite%20Airsoft',
-                '_blank'
-              )
-            }
+            onClick={openReservationModal}
           />
         </div>
         <img src={Mira} alt="Mira decorativa" className="home__mira" />

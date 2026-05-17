@@ -4,29 +4,63 @@
    ========================================================= */
 
 .equip-section{
-  background: var(--color-bg-dark);
-  padding: 0 0;
+  padding: 0.6rem 0 1.4rem;
+}
+
+.equip-kicker{
+  margin: 0 0 0.25rem;
+  text-align: center;
+  color: var(--color-accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 900;
 }
 
 .equip-title{
   margin: 0;
   text-align: center;
   color: var(--color-text-light);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  font-size: clamp(1.6rem, 2.2vw, 2.3rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.65rem, 2.5vw, 2.45rem);
 }
 
 .equip-divider{
   height: 1px;
   width: 100%;
-  margin: 0.6rem 0 1.4rem 0;
+  margin: 0.7rem 0 1rem 0;
   background: rgba(167, 141, 102, 0.25);
+}
+
+.equip-mode-toggle{
+  width: fit-content;
+  margin: 0 auto 0.8rem;
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(167,141,102,0.18);
+  background: rgba(0,0,0,0.22);
+}
+
+.equip-mode-toggle button{
+  min-width: 120px;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(216,210,194,0.82);
+  border: 1px solid transparent;
+}
+
+.equip-mode-toggle button.is-active{
+  color: var(--color-text-light);
+  background: rgba(167,141,102,0.14);
+  border-color: rgba(167,141,102,0.3);
 }
 
 /* Panel con look tecnológico */
 .equip-panel{
-  margin-bottom: 2rem;
+  margin-bottom: 0.6rem;
 }
 
 /* Grid tech de fondo */
@@ -52,6 +86,16 @@
   grid-template-columns: minmax(280px, 380px) 1fr;
   gap: clamp(0.9rem, 1.6vw, 1.25rem);
   align-items: stretch;
+}
+
+.equip-right--solo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.equip-right--solo .equip-radial{
+  width: min(820px, 100%);
 }
 
 /* Panel izquierdo */
@@ -113,7 +157,7 @@
    ========================================================= */
 
 .modeCard{
-  height: 100%;
+  height: 0%;
   display: flex;
   flex-direction: column;
 }
@@ -173,8 +217,6 @@
 /* Panel derecho */
 .equip-right{
   border-radius: 6px;
-  border: 1px solid rgba(167,141,102,0.12);
-  background: rgba(0,0,0,0.10);
   overflow: hidden;
 }
 
@@ -183,14 +225,14 @@
   position: relative;
   border-radius: 22px;
   overflow: hidden;
-  min-height: clamp(460px, 44vw, 640px);
-  padding: clamp(1rem, 2vw, 2rem);
+  min-height: clamp(500px, 43vw, 620px);
+  padding: clamp(1rem, 2vw, 1.8rem);
 
   /* radio responsive para nodos */
-  --node-r: clamp(190px, 18vw, 310px);
+  --node-r: clamp(165px, 16vw, 245px);
 
   /* control de altura (sube/baja todo el sistema) */
-  --center-y: 45%;
+  --center-y: 50%;
 }
 
 /* Glow central */
@@ -238,7 +280,7 @@
   position:absolute;
   left: 50%;
   top: var(--center-y);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -46%);
   z-index: 2;
   display: grid;
   place-items: center;
@@ -246,10 +288,17 @@
 }
 
 .equip-player{
-  width: clamp(300px, 34vw, 500px);
+  width: clamp(250px, 28vw, 390px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 22px 55px rgba(0,0,0,0.50));
+  animation: playerSwap 520ms cubic-bezier(.2,.9,.2,1);
+}
+
+.equip-node-ring{
+  position: absolute;
+  inset: 0;
+  animation: ringSwap 700ms cubic-bezier(.2,.9,.2,1);
 }
 
 /* ===== Nodos: imagen grande + texto debajo ===== */
@@ -257,7 +306,7 @@
   position: absolute;
   left: 50%;
   top: var(--center-y);
-  z-index: 3;
+  z-index: 4;
 
   display: flex;
   flex-direction: column;
@@ -268,13 +317,13 @@
   border-radius: 50px;
 
   background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(167,141,102,0.16);
+  border: 1px solid rgba(155, 102, 167, 0.16);
   box-shadow: 0 18px 50px rgba(0,0,0,0.35);
 
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
-  width: clamp(140px, 14vw, 210px);
+  width: clamp(128px, 12vw, 180px);
   text-align: center;
   user-select: none;
 
@@ -317,14 +366,44 @@
   }
 }
 
+@keyframes ringSwap{
+  0%{
+    opacity: 0;
+    transform: rotate(-24deg) scale(0.88);
+    filter: blur(8px);
+  }
+  65%{
+    opacity: 1;
+    transform: rotate(4deg) scale(1.02);
+    filter: blur(0);
+  }
+  100%{
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes playerSwap{
+  0%{
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+    filter: blur(10px) drop-shadow(0 22px 55px rgba(0,0,0,0.50));
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0) drop-shadow(0 22px 55px rgba(0,0,0,0.50));
+  }
+}
+
 .equip-node:hover{
   border-color: rgba(167,141,102,0.42);
   background: rgba(0,0,0,0.30);
 }
 
 .equip-node__img{
-  width: clamp(74px, 6vw, 118px);
-  height: clamp(74px, 6vw, 118px);
+  width: clamp(64px, 5vw, 96px);
+  height: clamp(64px, 5vw, 96px);
   object-fit: contain;
   filter: drop-shadow(0 12px 26px rgba(0,0,0,0.40));
 }
@@ -355,33 +434,15 @@
 }
 
 /* Badge inferior */
-.equip-badge{
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-  z-index: 4;
-
-  padding: 0.65rem 1.1rem;
-  border-radius: 999px;
-  background: rgba(35,37,39,0.70);
-  border: 1px solid rgba(167,141,102,0.26);
-  color: rgba(216,210,194,0.92);
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  text-align: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  white-space: nowrap;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-}
-
 /* Ángulos (responsive por radio) */
-.node-casco   { --a: -135deg; --d: 0ms; }
-.node-chaleco { --a:  -35deg; --d: 220ms; }
-.node-guantes { --a:   10deg; --d: 420ms; }
-.node-bbs     { --a:   55deg; --d: 640ms; } /* cargador más a la derecha */
+.node-casco   { --a: -145deg; --d: 0ms; }
+.node-chaleco { --a:  -72deg; --d: 220ms; }
+.node-guantes { --a:    0deg; --d: 420ms; }
+.node-bbs     { --a:   72deg; --d: 640ms; }
 .node-replica { --a:  145deg; --d: 860ms; }
+.node-gelsoft-replica { --a: -120deg; --d: 0ms; }
+.node-gafas           { --a:    0deg; --d: 220ms; }
+.node-balas-hidrogel  { --a:  120deg; --d: 440ms; }
 
 /* =========================================================
    Responsive
@@ -396,8 +457,8 @@
   }
 
   .equip-radial{
-    min-height: clamp(520px, 120vw, 720px);
-    --node-r: clamp(150px, 30vw, 230px);
+    min-height: clamp(460px, 105vw, 620px);
+    --node-r: clamp(145px, 29vw, 210px);
     --center-y: 50%;
   }
 
@@ -413,7 +474,7 @@
   }
 
   .equip-player{
-    width: clamp(260px, 72vw, 360px);
+    width: clamp(220px, 62vw, 320px);
   }
 
   .equip-node{
@@ -438,92 +499,4 @@
     max-width: 420px;
     margin: 0.6rem auto 0;
   }
-
-  .equip-center{
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin-top: 0.6rem;
-  }
-
-  .equip-badge{
-    position: static;
-    transform: none;
-    margin: 0.8rem auto 0;
-    width: fit-content;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .equip-orbit,
-  .equip-node{
-    animation: none !important;
-  }
-}
-.equip-left__note{
-  margin: 0.75rem 1rem 1rem;
-  padding: 0.75rem 0.9rem;
-  border-radius: 9px;
-  border: 1px solid rgba(167,141,102,0.14);
-
-  color: rgba(216,210,194,0.88);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-.equip-left__footer{
-  padding: 0 0.85rem 0.95rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
-/* CTA Button */
-.equip-cta{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-
-  width: 100%;
-  padding: 0.85rem 1rem;
-
-  border-radius: 12px;
-  border: 1px solid rgba(167,141,102,0.22);
-
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.05), transparent 55%),
-    rgba(167,141,102,0.14);
-
-  color: rgba(255,255,255,0.92);
-  text-decoration: none;
-
-  font-weight: 900;
-  letter-spacing: 0.02em;
-
-  box-shadow: 0 16px 48px rgba(0,0,0,0.40);
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-}
-
-.equip-cta:hover{
-  transform: translateY(-1px);
-  border-color: rgba(167,141,102,0.46);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.07), transparent 55%),
-    rgba(167,141,102,0.18);
-}
-
-/* Ícono WhatsApp */
-.equip-cta__icon{
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-/* Variante WhatsApp (solo si quieres diferenciarla sutilmente) */
-.equip-cta.is-whatsapp{
-  border-color: rgba(216,210,194,0.22);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.05), transparent 55%),
-    rgba(35,37,39,0.55);
 }

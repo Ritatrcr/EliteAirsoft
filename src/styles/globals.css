@@ -41,7 +41,6 @@
   height: 100vh;
   overflow-y: auto;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 
   /* Ayuda a que el snap/scroll tenga en cuenta el navbar fijo */
   scroll-padding-top: var(--navbar-height);
@@ -65,11 +64,14 @@ html, body, #root {
 }
 
 .screen{
-   scroll-snap-align: start;
   width: 100%;
   padding-top: 40px;      /* <- elimina la franja verde */
-  padding-bottom: rem;         /* opcional: separación entre secciones */
-  border-bottom: 1px solid rgba(167, 141, 102, 0.25);
+  padding-bottom: 0;
+  border-bottom: 1px solid rgba(169, 85, 40, 0.25);
   display: block;
   align-items: center;
+}
+
+.screen--flush{
+  padding-top: 0;
 }

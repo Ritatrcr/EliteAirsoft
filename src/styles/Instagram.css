@@ -1,6 +1,5 @@
 .ig-section {
   position: relative;
-  background: var(--color-bg-dark);
   padding: clamp(2.5rem, 5vw, 4.5rem) 0;
   overflow: hidden;
   outline: none;
@@ -10,7 +9,6 @@
   content: "";
   position: absolute;
   inset: -40% -20%;
-  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.06), transparent 65%);
   filter: blur(10px);
   pointer-events: none;
 }

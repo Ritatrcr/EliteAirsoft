@@ -18,7 +18,6 @@ const Campos = () => {
       <style>{`
         .campos-section{
           position: relative;
-          background-color: var(--color-bg-dark);
           padding: 0rem 0 3rem 0;
         }
 
@@ -72,7 +71,7 @@ const Campos = () => {
       `}</style>
 
       <div className="container">
-        <h2 className="campos-section__title">NUESTROS CAMPOS</h2>
+        <h2 className="campos-section__title">Nuestros Campos</h2>
         <div className="campos-section__divider" />
 
         <div className="campos-grid">

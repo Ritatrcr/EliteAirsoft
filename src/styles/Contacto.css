@@ -1,0 +1,48 @@
+.contact{
+  padding: clamp(2.6rem, 5vw, 4.4rem) 0;
+}
+
+.contact-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(circle at top right, rgba(167,141,102,0.18), transparent 34%),
+    rgba(255,255,255,0.04);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+}
+
+.contact-card h2{
+  margin-top: 0.4rem;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.08;
+}
+
+.contact-card p:not(.eyebrow){
+  margin-top: 0.75rem;
+  color: rgba(216,210,194,0.82);
+  line-height: 1.65;
+}
+
+.contact-actions{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-actions a{
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+@media (max-width: 760px){
+  .contact-card{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

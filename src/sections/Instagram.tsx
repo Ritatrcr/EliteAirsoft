@@ -362,9 +362,12 @@ useEffect(() => {
               </div>
 
               <div className="ig-infoActions">
-                <a className="ig-infoBtn ig-infoBtn--primary" href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noreferrer">
-                  ¡Síguenos en Instagram!
-                </a>
+                <Button
+                  text="¡Síguenos en Instagram!"
+                  onClick={() => {
+                    window.open(INSTAGRAM_PROFILE_URL, "_blank", "noopener,noreferrer");
+                  }}
+                />
                 
              
               </div>

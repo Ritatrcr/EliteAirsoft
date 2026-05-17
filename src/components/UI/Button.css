@@ -1,7 +1,7 @@
 .btn {
   padding: 0.8rem 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 3px;
+  border-radius: 6px;
 
   /* Mantiene tu color acento, pero lo vuelve más tecnológico */
   background: linear-gradient(

@@ -1,0 +1,165 @@
+.sn{
+  padding: clamp(2.5rem, 5vw, 4.2rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow suave de fondo */
+.sn::before{
+  content:"";
+  position:absolute;
+  inset:-45% -25%;
+  background:
+    radial-gradient(closest-side, rgba(255,255,255,0.06), transparent 64%);
+  filter: blur(12px);
+  pointer-events:none;
+}
+
+/* Header */
+.sn-head{
+  position: relative;
+  text-align: center;
+  margin-bottom: clamp(1.6rem, 3vw, 2.3rem);
+  padding: 0 1rem;
+}
+
+.sn-titleRow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 0.75rem;
+}
+
+.sn-titleIcon{
+  width: 44px;
+  height: 44px;
+  display:grid;
+  place-items:center;
+  color: var(--color-accent);
+  border-radius: 14px;
+}
+
+.sn-title{
+  margin: 0;
+  color: var(--color-text-light);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+}
+
+.sn-subtitle{
+  margin: 0.85rem auto 0;
+  max-width: 70ch;
+  color: rgba(216,210,194,0.82);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+/* Grid */
+.sn-grid{
+  position: relative;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: 0 1rem;
+}
+
+/* Card */
+.sn-card{
+  display:flex;
+  gap: 1rem;
+  align-items:flex-start;
+
+  padding: clamp(1.1rem, 2vw, 1.35rem);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 22px 65px rgba(0,0,0,0.35);
+
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.sn-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.055);
+}
+
+/* Icono dentro de card */
+.sn-cardIcon{
+  width: 56px;
+  height: 56px;
+  display:grid;
+  place-items:center;
+
+  border-radius: 16px;
+  background: rgba(0,0,0,0.26);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  color: var(--color-accent);
+  flex: 0 0 auto;
+}
+
+.sn-iconSvg{
+  width: 26px;
+  height: 26px;
+}
+
+/* Textos */
+.sn-cardTitle{
+  margin: 0;
+  color: var(--color-text-light);
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.sn-cardDesc{
+  margin: 0.55rem 0 0;
+  color: rgba(216,210,194,0.82);
+  line-height: 1.55;
+  font-size: 1rem;
+}
+
+/* Nota inferior */
+.sn-note{
+  position: relative;
+  margin: clamp(1.6rem, 3vw, 2.2rem) 1rem 0;
+  padding: 1.15rem 1.25rem;
+  border-radius: 18px;
+
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+
+  display:flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content:center;
+  text-align:center;
+}
+
+.sn-noteBadge{
+  color: var(--color-accent);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.sn-noteText{
+  color: rgba(216,210,194,0.86);
+  line-height: 1.55;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  .sn-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .sn-card{
+    transition: none !important;
+  }
+}

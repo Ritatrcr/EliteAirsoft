@@ -4,6 +4,13 @@ import Equipamiento from "./Equipamiento";
 import Opiniones from "./Opiniones";
 import InstagramSection from "./Instagram";
 import WhatsAppFloat from "../components/UI/WhatsAppFloat";
+import Footer from "./Footer";
+import Eventos from "./Eventos";
+import Experiencia from "./Experiencia";
+import Planes from "./Planes";
+import Servicios from "./Servicios";
+import TiposPartida from "./TiposPartida";
+import Reservas from "./Reservas";
 
 const Principal = () => {
   return (
@@ -33,8 +40,7 @@ const Principal = () => {
 
       <section className="screen">
         <div className="container">
-          <h1>Videos / Fotos cheveres</h1>
-          <p>(RITA)</p>
+          <Experiencia />
         </div>
       </section>
 
@@ -44,20 +50,20 @@ const Principal = () => {
         
       </section>
 
+      {/* <section className="screen">
+        <div className="container">
+          <SeguridadNormas/>
+        </div>
+      </section> */}
+
+      
+
       {/* PLANES (Navbar -> #planes) */}
       
 
-      <section className="screen">
+      <section id="planes" className="screen screen--flush">
         <div className="container">
-          <h1>Planes Airsoft (Combos)</h1>
-          <p>(MERCHITO)</p>
-        </div>
-      </section>
-
-      <section className="screen">
-        <div className="container">
-          <h1>Planes Gelsoft</h1>
-          <p>(RITA)</p>
+          <Planes />
         </div>
       </section>
 
@@ -66,8 +72,19 @@ const Principal = () => {
       {/* SOBRE NOSOTROS (Navbar -> #sobre-nosotros) */}
       <section id="sobre-nosotros" className="screen">
         <div className="container">
-          <h1>Servicios (Tejo, bombas, bolirana, parqueadero)</h1>
-          <p>(MERCHITO)</p>
+          <Servicios />
+        </div>
+      </section>
+
+      <section className="screen screen--flush">
+        <div className="container">
+          <TiposPartida />
+        </div>
+      </section>
+
+      <section className="screen">
+        <div className="container">
+          <Eventos/>
         </div>
       </section>
 
@@ -84,19 +101,8 @@ const Principal = () => {
         </div>
       </section>
 
-      {/* CONTACTANOS (Navbar -> #contactanos) */}
-      <section id="contactanos" className="screen">
-        <div className="container">
-          <h1>Contacto / Reserva ya</h1>
-        </div>
-      </section>
-
-      <section className="screen">
-        <div className="container">
-          <h1>Footer</h1>
-          <p>(MERCHITO)</p>
-        </div>
-      </section>
+      <Footer />
+      <Reservas />
     </>
 
     

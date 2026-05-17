@@ -1,0 +1,287 @@
+.ev{
+  padding: clamp(2.8rem, 5vw, 4.4rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ev::before{
+  content:"";
+  position:absolute;
+  inset:-45% -25%;
+  filter: blur(12px);
+  pointer-events:none;
+}
+
+.ev-head{
+  position: relative;
+  text-align: center;
+  padding: 0 1rem;
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.ev-title{
+  margin: 0;
+  color: var(--color-text-light);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.1rem, 3.7vw, 3.2rem);
+}
+
+.ev-subtitle{
+  margin: 0.85rem auto 0;
+  max-width: 70ch;
+  color: rgba(216,210,194,0.82);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+/* Lista */
+.ev-list{
+  position: relative;
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding: 0 1rem;
+}
+
+/* Card fila */
+.ev-card{
+  display: grid;
+  grid-template-columns: 112px 1fr auto;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  align-items: center;
+
+  padding: clamp(1.15rem, 2vw, 1.35rem);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 22px 65px rgba(0,0,0,0.35);
+
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.ev-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.055);
+}
+
+/* Fecha */
+.ev-date{
+  width: 104px;
+  height: 104px;
+  border-radius: 18px;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+}
+
+.ev-dateDay{
+  color: var(--color-accent);
+  font-weight: 900;
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+.ev-dateMonth{
+  margin-top: 0.25rem;
+  color: rgba(216,210,194,0.85);
+  letter-spacing: 0.10em;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* Main */
+.ev-main{
+  min-width: 0;
+}
+
+.ev-name{
+  margin: 0;
+  color: var(--color-text-light);
+  font-weight: 900;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ev-meta{
+  margin-top: 0.55rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  color: rgba(216,210,194,0.78);
+  font-weight: 700;
+}
+
+.ev-dot{
+  color: rgba(216,210,194,0.55);
+}
+
+.ev-sep{
+  opacity: 0.6;
+}
+
+.ev-people{
+  opacity: 0.9;
+}
+
+/* Actions */
+.ev-actions{
+  display: grid;
+  justify-items: end;
+  gap: 0.75rem;
+  min-width: 260px;
+}
+
+.ev-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+}
+
+/* Estado (solo con tu accent) */
+.ev-pill--abierto{
+  color: var(--color-accent);
+  border-color: rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+}
+
+.ev-pill--ultimos{
+  color: var(--color-accent);
+  border-color: rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+}
+
+.ev-pill--cerrado{
+  color: rgba(255,255,255,0.55);
+}
+
+/* Botón: usa tu .btn, pero “más pill” como la imagen */
+.ev-btnWrap .btn{
+  padding: 0.85rem 1.35rem;
+  border-radius: 14px;
+  font-weight: 900;
+}
+
+/* Responsive */
+@media (max-width: 920px){
+  .ev-card{
+    grid-template-columns: 104px 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+
+  .ev-actions{
+    grid-column: 1 / -1;
+    justify-items: start;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .ev-name{
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px){
+  .ev-date{
+    width: 92px;
+    height: 92px;
+    border-radius: 16px;
+  }
+
+  .ev-dateDay{ font-size: 1.95rem; }
+  .ev-meta{ gap: 0.5rem; }
+}
+
+.equip-center {
+  position: relative;
+}
+
+.equip-mode-switch {
+  position: absolute;
+  left: 50%;
+  bottom: -3.2rem;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  padding: 0.35rem;
+  border-radius: 999px;
+
+  background: rgba(5, 8, 10, 0.88);
+  border: 1px solid rgba(190, 33, 38, 0.55);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+
+  z-index: 20;
+}
+
+.equip-mode-option {
+  min-width: 95px;
+
+  border: 0;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+
+  background: transparent;
+  color: var(--color-accent);
+
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.equip-mode-option:hover {
+  color: var(--color-text-light);
+  transform: translateY(-1px);
+}
+
+.equip-mode-option.is-active {
+  background: var(--color-accent);
+  color: var(--color-bg-dark);
+  box-shadow: 0 0 18px rgba(190, 33, 38, 0.65);
+}
+
+@media (max-width: 768px) {
+  .equip-mode-switch {
+    bottom: -2.8rem;
+  }
+
+  .equip-mode-option {
+    min-width: 82px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.72rem;
+  }
+}

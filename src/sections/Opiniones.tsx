@@ -290,9 +290,7 @@ function MapCard() {
           rel="noreferrer"
           aria-label="Abrir en Google Maps"
         />
-        <a className="map-cta" href={MAPS_URL} target="_blank" rel="noreferrer">
-          Abrir en Google Maps
-        </a>
+        
       </div>
 
       <div className="map-card__footer">
