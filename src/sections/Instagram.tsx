@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import "../styles/Instagram.css";
 
 import Button from "../components/UI/Button"; // ✅ ajusta la ruta si tu Button está en otra carpeta
@@ -220,7 +220,7 @@ useEffect(() => {
                         <div className="ig-progressWrap" aria-hidden={!isActive}>
                           <div
                             className={`ig-progress ${isActive ? "is-running" : ""}`}
-                            style={{ ["--ig-dur" as any]: `${dur}ms` }}
+                            style={{ "--ig-dur": `${dur}ms` } as CSSProperties}
                           />
                         </div>
 

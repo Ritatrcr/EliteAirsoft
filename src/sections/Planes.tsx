@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import "../styles/MarketingSections.css";
 import Button from "../components/UI/Button";
 import PlanesBg from "../assets/images/campos/CQB3.jpg";
-import { openReservationModal } from "./Reservas";
+import { openReservationModal } from "../utils/reservationModal";
 
 type PlanMode = "airsoft" | "gelsoft";
 

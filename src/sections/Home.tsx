@@ -4,7 +4,7 @@ import Banner from '../assets/images/Banner.png';
 import Mira from '../assets/images/Mira.png';
 import Background from '../assets/images/Background.png'; 
 import MobileBackground from '../assets/images/Mobile.png';
-import { openReservationModal } from './Reservas';
+import { openReservationModal } from '../utils/reservationModal';
 
 
 const Home = () => {

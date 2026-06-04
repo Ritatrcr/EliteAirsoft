@@ -8,8 +8,6 @@ type Step = 0 | 1 | 2 | 3;
 type Booking = { id: string; date: string; time: string; duration: 1 | 2 };
 type OpenEvent = { id: string; date: string; time: string; title: string; slotsTotal: number; slotsTaken: number; type: GameType };
 
-export const openReservationModal = () => window.dispatchEvent(new Event("open-reservation-modal"));
-
 const BOOKINGS: Booking[] = [
   { id: "b1", date: "2026-05-23", time: "10:00", duration: 2 },
   { id: "b2", date: "2026-05-23", time: "15:00", duration: 1 },
