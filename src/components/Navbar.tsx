@@ -1,4 +1,5 @@
 import './Navbar.css';
+import LogoHorizontal from '../assets/images/LogoHorizontal.png';
 
 const NAV_IDS = {
   campos: 'campos',
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar__logo">
-        <img src="/src/assets/images/LogoHorizontal.png" alt="Elite Airsoft" />
+        <img src={LogoHorizontal} alt="Elite Airsoft" />
       </div>
 
       <nav className="navbar__links" aria-label="Navegación principal">
