@@ -5,9 +5,9 @@ import Button from "../components/UI/Button"; // ✅ ajusta la ruta si tu Button
 
 
 // ✅ Reemplaza estos imports por tus videos reales
-import Story01 from "../assets/videos/instagram/story01.mov";
+import Story01 from "../assets/videos/instagram/story01.MOV";
 import Story02 from "../assets/videos/instagram/story02.mp4";
-import Story03 from "../assets/videos/instagram/story03.mov";
+import Story03 from "../assets/videos/instagram/story03.MOV";
 import { FiVolumeX, FiVolume2 } from "react-icons/fi";
 
 
