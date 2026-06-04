@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/Instagram.css";
 
 import Button from "../components/UI/Button"; // ✅ ajusta la ruta si tu Button está en otra carpeta
@@ -73,66 +73,6 @@ export default function InstagramSection() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [inView, setInView] = useState(false);
-
-  const SoundIcon = ({ muted }: { muted: boolean }) => {
-  return muted ? (
-    // Muted
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M11 5 6 9H2v6h4l5 4V5z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m23 9-6 6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m17 9 6 6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  ) : (
-    // Sound on
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M11 5 6 9H2v6h4l5 4V5z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M15.5 8.5a5 5 0 0 1 0 7"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M19 5a10 10 0 0 1 0 14"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
 
 useEffect(() => {
   if (!inView) return;

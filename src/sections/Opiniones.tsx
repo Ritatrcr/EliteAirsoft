@@ -149,10 +149,7 @@ function Avatar({ author, avatarUrl }: { author: string; avatarUrl?: string }) {
 }
 
 function ReviewCard({ review }: { review: Review }) {
-  const [expanded, setExpanded] = useState(false);
-
-  // ✅ Muestra "Ver más" si el texto es largo o si hay fotos
-  const showToggle = review.text.length > 190 || (review.photos?.length ?? 0) > 0;
+  const [expanded] = useState(false);
 
   const previewLen = 180;
   const needsTrim = review.text.length > previewLen;
@@ -306,7 +303,6 @@ function MapCard() {
 
 
 const Opiniones: React.FC<OpinionesProps> = ({
-  title = "Titulo",
   summary = DEFAULT_SUMMARY,
   reviews = DEFAULT_REVIEWS,
 }) => {
