@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import "../styles/MarketingSections.css";
 import Button from "../components/UI/Button";
 import PlanesBg from "../assets/images/campos/CQB3.jpg";
-import { openReservationModal } from "../utils/reservationModal";
+import { openReservationWhatsApp } from "../utils/whatsapp";
 
 type PlanMode = "airsoft" | "gelsoft";
 
@@ -124,7 +124,7 @@ const Planes: React.FC = () => {
       <div className="plans-cta">
         <Button
           text={`Consultar ${activePlan.name}`}
-          onClick={openReservationModal}
+          onClick={() => openReservationWhatsApp(activePlan.name)}
         />
       </div>
     </section>

@@ -10,7 +10,6 @@ import Experiencia from "./Experiencia";
 import Planes from "./Planes";
 import Servicios from "./Servicios";
 import TiposPartida from "./TiposPartida";
-import Reservas from "./Reservas";
 
 const Principal = () => {
   return (
@@ -102,7 +101,6 @@ const Principal = () => {
       </section>
 
       <Footer />
-      <Reservas />
     </>
 
     

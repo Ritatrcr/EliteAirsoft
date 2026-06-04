@@ -4,7 +4,7 @@ import Banner from '../assets/images/Banner.png';
 import Mira from '../assets/images/Mira.png';
 import Background from '../assets/images/Background.png'; 
 import MobileBackground from '../assets/images/Mobile.png';
-import { openReservationModal } from '../utils/reservationModal';
+import { openReservationWhatsApp } from '../utils/whatsapp';
 
 
 const Home = () => {
@@ -233,7 +233,7 @@ const Home = () => {
           </p>
           <Button
             text="RESERVA YA!"
-            onClick={openReservationModal}
+            onClick={() => openReservationWhatsApp("reserva general")}
           />
         </div>
         <img src={Mira} alt="Mira decorativa" className="home__mira" />

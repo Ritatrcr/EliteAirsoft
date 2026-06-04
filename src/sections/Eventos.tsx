@@ -19,7 +19,7 @@ const EVENTS: EventItem[] = [
   {
     id: "e1",
     day: "15",
-    month: "MAR",
+    month: "JUN",
     title: "Partida Abierta",
     type: "CQB Nocturno",
     slots: "30 Cupos",

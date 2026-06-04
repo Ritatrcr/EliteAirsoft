@@ -43,9 +43,9 @@ const Footer: React.FC = () => {
 
         <div className="footer__column">
           <h3>Información útil</h3>
-          <span>Airsoft desde 15 años con adulto responsable</span>
+          <span>Airsoft y Gelsoft</span>
           <span>Si vienes solo(a), pregunta por la partida abierta</span>
-          <span>Reservas con abono de $60.000</span>
+          <span>¡Reservas Ya!</span>
         </div>
 
         <nav className="footer__column" aria-label="Enlaces">
