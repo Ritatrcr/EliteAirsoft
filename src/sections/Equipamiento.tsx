@@ -15,6 +15,7 @@ import CargadorBBsImg from "../assets/images/equipamiento/Cargador.png";
 import ReplicaGelsoftImg from "../assets/images/equipamiento/Arma de hidrogel.png";
 import GafasProteccionImg from "../assets/images/equipamiento/Gafas de protección.png";
 import BalasHidrogelImg from "../assets/images/equipamiento/Balas hidrogel.png";
+import ChalecoHidrogelImg from "../assets/images/equipamiento/chalecoHidrogel.png";
 
 type EquipMode = "airsoft" | "gelsoft";
 
@@ -46,6 +47,12 @@ const GELSOFT_NODES: Node[] = [
     className: "node-gafas",
     img: GafasProteccionImg,
     title: "Gafas de protección",
+  },
+  {
+    key: "chaleco-hidrogel",
+    className: "node-chaleco-hidrogel",
+    img: ChalecoHidrogelImg,
+    title: "Chaleco hidrogel",
   },
   {
     key: "balas-hidrogel",

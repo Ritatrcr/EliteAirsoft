@@ -1,9 +1,11 @@
 import React from "react";
+import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import "../styles/Footer.css";
 
 const WHATSAPP_URL =
   "https://wa.me/573057668729?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Elite%20Airsoft";
 const INSTAGRAM_URL = "https://www.instagram.com/elite_airsoft_col/";
+const TIKTOK_URL = "https://www.tiktok.com/@elite_airsoft_";
 const MAPS_URL =
   "https://www.google.com/maps?q=4.7327642,-74.225557&z=17";
 
@@ -18,6 +20,17 @@ const Footer: React.FC = () => {
           <p className="footer__description">
             Campo de airsoft en Funza para partidas, grupos, cumpleaños y experiencias tácticas.
           </p>
+          <div className="footer__socials" aria-label="Redes sociales">
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <FaWhatsapp />
+            </a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram">
+              <FaInstagram />
+            </a>
+            <a href={TIKTOK_URL} target="_blank" rel="noreferrer" aria-label="TikTok">
+              <FaTiktok />
+            </a>
+          </div>
           <div className="footer__meta">© {year} • Todos los derechos reservados</div>
         </div>
 

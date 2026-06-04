@@ -440,9 +440,10 @@
 .node-guantes { --a:    0deg; --d: 420ms; }
 .node-bbs     { --a:   72deg; --d: 640ms; }
 .node-replica { --a:  145deg; --d: 860ms; }
-.node-gelsoft-replica { --a: -120deg; --d: 0ms; }
-.node-gafas           { --a:    0deg; --d: 220ms; }
-.node-balas-hidrogel  { --a:  120deg; --d: 440ms; }
+.node-gelsoft-replica { --a: -135deg; --d: 0ms; }
+.node-gafas           { --a:  -45deg; --d: 180ms; }
+.node-chaleco-hidrogel{ --a:   45deg; --d: 360ms; }
+.node-balas-hidrogel  { --a:  135deg; --d: 540ms; }
 
 /* =========================================================
    Responsive

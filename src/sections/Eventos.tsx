@@ -18,7 +18,7 @@ type EventItem = {
 const EVENTS: EventItem[] = [
   {
     id: "e1",
-    day: "15",
+    day: "7",
     month: "JUN",
     title: "Partida Abierta",
     type: "CQB Nocturno",

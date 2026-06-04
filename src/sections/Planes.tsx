@@ -33,14 +33,14 @@ const PLANS = {
   gelsoft: [
     {
       name: "Reserva 1 hora",
-      price: "$25.000",
+      price: "$45.000",
       duration: "1 hora",
       featured: false,
       perks: ["2 campos: Kill House + El Bunker", "Más de 2 modos de juego", "El precio varía según la réplica elegida", "Edad mínima: 6 años"],
     },
     {
       name: "Reserva 2 horas",
-      price: "$30.000",
+      price: "$55.000",
       duration: "2 horas",
       featured: true,
       perks: ["3 campos: Kill House + El Bunker + Élite Town", "Más de 5 modos de juego", "El precio varía según la réplica elegida", "Cumpleaños el mismo día: gratis"],

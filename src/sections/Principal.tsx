@@ -17,8 +17,8 @@ const Principal = () => {
       {/* OPCIONAL: una sección de inicio no clickeable */}
       <section className="screen">
         <WhatsAppFloat
-  phone="573001112233"
-  text="Hola, quiero info de planes."
+  phone="573057668729"
+  text="Hola, quiero hacer una reserva en Elite Airsoft."
   tooltip="Escríbenos"
   side="right"
 />
