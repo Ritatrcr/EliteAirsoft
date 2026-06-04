@@ -209,3 +209,17 @@
   .wa-tooltip,
   .wa-filled { transition: none; }
 }
+
+@media (max-width: 640px) {
+  .wa-float {
+    --wa-size: 52px;
+    --wa-right: 0.9rem;
+    --wa-bottom: 1.15rem;
+    left: auto;
+    right: var(--wa-right);
+  }
+
+  .wa-tooltip {
+    display: none;
+  }
+}

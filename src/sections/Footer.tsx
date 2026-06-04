@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer id="contactanos" className="footer">
       <div className="footer__grid">
         <div className="footer__brand">
           <div className="footer__name">ELITE AIRSOFT</div>

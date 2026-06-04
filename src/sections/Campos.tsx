@@ -79,21 +79,18 @@ const Campos = () => {
             title="La Fortaleza"
             images={[Fortaleza1, Fortaleza2, Fortaleza3]}
             description="Campo al aire libre con laberinto, casa, puentes y túnel."
-            autoplayMs={3500}
           />
 
           <CampoCard
             title="Elite Town (Bus)"
             images={[Town1, Town2, Town3]}
             description="Escenario urbano con bus, casa y pasillo."
-            autoplayMs={3500}
           />
 
           <CampoCard
             title="Campo Cubierto CQB"
             images={[CQB1, CQB2, CQB3]}
             description="Combate cercano en pasillos, cuartos y ventanas tipo casa.  "
-            autoplayMs={3500}
           />
         </div>
       </div>

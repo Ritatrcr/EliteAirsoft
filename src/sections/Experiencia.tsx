@@ -7,10 +7,10 @@ import FortalezaImg from "../assets/images/campos/Fortaleza2.jpg";
 import CqbImg from "../assets/images/campos/CQB3.jpg";
 
 const MOMENTS = [
-  { title: "Túneles", image: TunelImg },
-  { title: "Nocturnas", image: FogataImg },
-  { title: "Fortaleza", image: FortalezaImg },
-  { title: "CQB", image: CqbImg },
+  { title: "Túneles", image: TunelImg, label: "Movimiento", desc: "Avanza, cubre y sorprende al rival." },
+  { title: "Nocturnas", image: FogataImg, label: "Adrenalina", desc: "La misión cambia cuando baja la luz." },
+  { title: "Fortaleza", image: FortalezaImg, label: "Estrategia", desc: "Defiende posiciones y domina el campo." },
+  { title: "CQB", image: CqbImg, label: "Acción rápida", desc: "Combate cercano, reflejos y precisión." },
 ];
 
 const Experiencia: React.FC = () => {
@@ -38,6 +38,8 @@ const Experiencia: React.FC = () => {
             <img src={moment.image} alt="" />
             <div className="experience-tile__scrim" />
             <span>{moment.title}</span>
+            <small>{moment.label}</small>
+            <p>{moment.desc}</p>
           </button>
         ))}
       </div>
