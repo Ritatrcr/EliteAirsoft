@@ -4,14 +4,14 @@ import EquipNode from "../components/Equipamiento/EquipNode";
 
 import "../styles/Equipamento.css";
 
-import JugadorImg from "../assets/images/equipamiento/jugador.png";
+import JugadorImg from "../assets/images/equipamiento/Jugador.png";
 import JugadorGelsoftImg from "../assets/images/equipamiento/Persona Gelsoft.png";
 
-import CascoImg from "../assets/images/equipamiento/casco.png";
-import ChalecoImg from "../assets/images/equipamiento/chaleco.png";
-import GuantesImg from "../assets/images/equipamiento/guantes.png";
-import ReplicaImg from "../assets/images/equipamiento/replica.png";
-import CargadorBBsImg from "../assets/images/equipamiento/cargador.png";
+import CascoImg from "../assets/images/equipamiento/Casco.png";
+import ChalecoImg from "../assets/images/equipamiento/Chaleco.png";
+import GuantesImg from "../assets/images/equipamiento/Guantes.png";
+import ReplicaImg from "../assets/images/equipamiento/Replica.png";
+import CargadorBBsImg from "../assets/images/equipamiento/Cargador.png";
 import ReplicaGelsoftImg from "../assets/images/equipamiento/Arma de hidrogel.png";
 import GafasProteccionImg from "../assets/images/equipamiento/Gafas de protección.png";
 import BalasHidrogelImg from "../assets/images/equipamiento/Balas hidrogel.png";
