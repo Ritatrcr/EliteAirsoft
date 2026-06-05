@@ -62,10 +62,51 @@ const Campos = () => {
 
         @media (max-width: 720px){
           .campos-section{
-            padding: 2rem 0 2.5rem 0;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            padding: 1.85rem 0 2.1rem;
+            overflow: hidden;
+            background:
+              radial-gradient(circle at 18% 8%, rgba(167,141,102,0.12), transparent 28%),
+              linear-gradient(180deg, #202222, #171818 76%, #111212);
+            border-top: 1px solid rgba(167,141,102,0.14);
+            border-bottom: 1px solid rgba(167,141,102,0.12);
           }
+
+          .campos-section .container{
+            width: 100%;
+            max-width: none;
+            padding-inline: 0;
+          }
+
+          .campos-section__title{
+            font-size: clamp(2rem, 10vw, 2.75rem);
+            line-height: 0.95;
+            letter-spacing: 0.08em;
+          }
+
+          .campos-section__divider{
+            width: calc(100% - 2rem);
+            margin: 0.9rem auto 1.1rem;
+          }
+
           .campos-grid{
-            grid-template-columns: 1fr;
+            display: flex;
+            grid-template-columns: none;
+            gap: 0.85rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 1rem 0.35rem;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .campos-grid::-webkit-scrollbar{
+            height: 0;
+          }
+
+          .campos-grid > *{
+            flex: 0 0 min(82vw, 342px);
+            scroll-snap-align: center;
           }
         }
       `}</style>

@@ -1064,3 +1064,511 @@
     transform: translateY(0) scale(1);
   }
 }
+
+@media (max-width: 640px){
+  .plans{
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.15rem 1rem 2.35rem;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.86)),
+      var(--plans-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .plans .section-heading{
+    margin-bottom: 0.85rem;
+    max-width: 21rem;
+  }
+
+  .plans .eyebrow{
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+  }
+
+  .plans .section-heading h2{
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+    line-height: 0.98;
+    max-width: 10ch;
+    margin-inline: auto;
+  }
+
+  .plans .mode-toggle{
+    width: min(100%, 310px);
+    margin-bottom: 0.85rem;
+    padding: 0.28rem;
+  }
+
+  .plans .mode-toggle button{
+    min-width: 0;
+    padding: 0.42rem 0.7rem;
+    font-size: 0.86rem;
+  }
+
+  .plans-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.72rem;
+    width: min(100%, 380px);
+    margin-inline: auto;
+  }
+
+  .plans-grid .plan-card:nth-child(n+3){
+    display: none;
+  }
+
+  .plan-card{
+    min-height: 0;
+    height: clamp(230px, 43svh, 285px);
+    padding: 0.95rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .plan-card.is-featured{
+    transform: none;
+  }
+
+  .plan-badge{
+    top: 0.65rem;
+    right: 0.65rem;
+    padding: 0.22rem 0.48rem;
+    font-size: 0.56rem;
+  }
+
+  .plan-card h3{
+    max-width: 8ch;
+    font-size: clamp(1rem, 4.4vw, 1.25rem);
+    line-height: 1.05;
+  }
+
+  .plan-price{
+    margin-top: 0.75rem;
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1;
+  }
+
+  .plan-price::after{
+    content: ' / persona';
+    display: block;
+    margin-top: 0.18rem;
+    color: rgba(216,210,194,0.58);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .plan-duration{
+    margin-top: 0.28rem;
+    font-size: 0.84rem;
+  }
+
+  .plan-card ul{
+    margin-top: 0.85rem;
+    gap: 0.45rem;
+  }
+
+  .plan-card li{
+    font-size: 0.74rem;
+    line-height: 1.18;
+    color: rgba(216,210,194,0.78);
+  }
+
+  .plan-card li:nth-child(n+3){
+    display: none;
+  }
+
+  .plan-card li::before{
+    margin-right: 0.32rem;
+  }
+
+  .plans-cta{
+    margin-top: 1rem;
+  }
+
+  .plans-cta .btn{
+    width: min(230px, 74vw);
+    min-height: 48px;
+    padding-inline: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px){
+  .match-types{
+    padding: 0;
+  }
+
+  .game-mode-shell{
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 1.65rem 0 1.8rem;
+  }
+
+  .game-mode-inner{
+    width: min(100% - 1.5rem, 430px);
+    min-height: 0;
+    padding: 0;
+  }
+
+  .game-mode-heading{
+    margin-bottom: 0.85rem;
+    padding-top: 0;
+  }
+
+  .game-mode-heading .eyebrow{
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+  }
+
+  .mission-stage{
+    display: block;
+    width: 100%;
+  }
+
+  .mission-focus{
+    width: 100%;
+    min-height: clamp(390px, 68svh, 510px);
+    border-radius: 24px;
+  }
+
+  .mission-focus img{
+    opacity: 0.82;
+  }
+
+  .mission-focus__scrim{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.46) 38%, rgba(0,0,0,0.88)),
+      radial-gradient(circle at 28% 18%, rgba(167,141,102,0.18), transparent 40%);
+  }
+
+  .mission-focus__content{
+    inset: auto 1rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .mission-focus .game-mode-chip{
+    padding: 0.26rem 0.58rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+
+  .mission-focus__content h3{
+    max-width: 9ch;
+    font-size: clamp(2.05rem, 11vw, 3rem);
+    line-height: 0.92;
+  }
+
+  .mission-focus__content p{
+    display: none;
+  }
+
+  .game-mode-meta{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.42rem;
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+
+  .game-mode-meta div{
+    padding: 0.55rem 0.48rem;
+    border-radius: 13px;
+    min-width: 0;
+  }
+
+  .game-mode-meta span{
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .game-mode-meta b{
+    font-size: 0.72rem;
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .mission-side{
+    display: none;
+  }
+
+  .mission-controls{
+    margin-top: 0.75rem;
+    gap: 0.55rem;
+  }
+
+  .mission-nav{
+    width: 34px;
+    height: 34px;
+  }
+
+  .mission-nav img{
+    width: 31px;
+    height: 31px;
+  }
+
+  .mission-progress--numbered button{
+    width: 9px;
+    height: 9px;
+  }
+
+  .mission-progress--numbered button.is-active{
+    width: 24px;
+  }
+}
+
+/* =========================
+   Servicios: interactive cards
+   ========================= */
+.service-card{
+  position: relative;
+  min-height: 176px;
+  display: grid;
+  align-content: end;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 190ms ease,
+    border-color 190ms ease,
+    background 190ms ease,
+    box-shadow 190ms ease;
+}
+
+.service-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(167,141,102,0.26), transparent 30%),
+    linear-gradient(145deg, rgba(167,141,102,0.12), transparent 55%);
+  transition: opacity 190ms ease;
+}
+
+.service-card:hover,
+.service-card.is-active{
+  transform: translateY(-4px);
+  border-color: rgba(167,141,102,0.52);
+  background: rgba(255,255,255,0.048);
+  box-shadow: 0 22px 58px rgba(0,0,0,0.25);
+}
+
+.service-card:hover::before,
+.service-card.is-active::before{
+  opacity: 1;
+}
+
+.service-card__icon,
+.service-card__tag,
+.service-card h3,
+.service-card p{
+  position: relative;
+  z-index: 1;
+}
+
+.service-card__icon{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.55rem;
+  height: 2.55rem;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: var(--color-accent);
+  background: rgba(0,0,0,0.26);
+  border: 1px solid rgba(167,141,102,0.25);
+  font-size: 1rem;
+  filter: drop-shadow(0 0 14px rgba(167,141,102,0.18));
+}
+
+.service-card__tag{
+  width: fit-content;
+  margin-bottom: 0.6rem;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  color: rgba(20,22,22,0.92);
+  background: rgba(167,141,102,0.9);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px){
+  .services{
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 2.25rem 1rem 2.55rem;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 16% 10%, rgba(167,141,102,0.16), transparent 28%),
+      radial-gradient(circle at 86% 82%, rgba(167,141,102,0.1), transparent 26%),
+      linear-gradient(180deg, #202222, #171818 72%, #101111);
+    border-top: 1px solid rgba(167,141,102,0.18);
+    border-bottom: 1px solid rgba(167,141,102,0.14);
+  }
+
+  .services::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to right, rgba(216,210,194,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(216,210,194,0.025) 1px, transparent 1px);
+    background-size: 34px 34px;
+    opacity: 0.32;
+    mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  }
+
+  .services .section-heading{
+    position: relative;
+    z-index: 1;
+    max-width: 22rem;
+    margin-bottom: 1.05rem;
+  }
+
+  .services .eyebrow{
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+  }
+
+  .services .section-heading h2{
+    max-width: 10ch;
+    margin-inline: auto;
+    font-size: clamp(2rem, 10vw, 2.75rem);
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+
+  .service-list.service-list--wide{
+    position: relative;
+    z-index: 1;
+    width: min(100%, 410px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.68rem;
+  }
+
+  .service-card{
+    min-height: 104px;
+    padding: 0.78rem;
+    align-content: end;
+    border-radius: 22px;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+      rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.09);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+    animation: servicePop 520ms ease both;
+  }
+
+  .service-card:nth-child(2){ animation-delay: 45ms; }
+  .service-card:nth-child(3){ animation-delay: 90ms; }
+  .service-card:nth-child(4){ animation-delay: 135ms; }
+  .service-card:nth-child(5){ animation-delay: 180ms; }
+  .service-card:nth-child(6){ animation-delay: 225ms; }
+
+  .service-card.is-active{
+    grid-column: 1 / -1;
+    min-height: 178px;
+    border-radius: 28px;
+    transform: none;
+    border-color: rgba(167,141,102,0.58);
+    background:
+      radial-gradient(circle at 16% 16%, rgba(167,141,102,0.22), transparent 34%),
+      linear-gradient(145deg, rgba(255,255,255,0.07), rgba(0,0,0,0.2));
+    box-shadow:
+      0 24px 60px rgba(0,0,0,0.38),
+      0 0 0 1px rgba(167,141,102,0.18) inset,
+      0 0 34px rgba(167,141,102,0.12);
+  }
+
+  .service-card__icon{
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 2.05rem;
+    height: 2.05rem;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    transition: transform 260ms ease, filter 260ms ease;
+  }
+
+  .service-card.is-active .service-card__icon{
+    transform: rotate(10deg) scale(1.08);
+    filter: drop-shadow(0 0 18px rgba(167,141,102,0.32));
+  }
+
+  .service-card__tag{
+    margin-bottom: 0.42rem;
+    padding: 0.22rem 0.5rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    opacity: 0.86;
+  }
+
+  .service-card h3{
+    max-width: 8.2rem;
+    font-size: clamp(1rem, 4.9vw, 1.42rem);
+    line-height: 1.02;
+  }
+
+  .service-card p{
+    display: none;
+    max-width: 24ch;
+    margin-top: 0.72rem;
+    color: rgba(238,232,216,0.78);
+    font-size: 0.88rem;
+    line-height: 1.38;
+  }
+
+  .service-card.is-active p{
+    display: block;
+    animation: serviceReveal 260ms ease both;
+  }
+
+  .service-card:not(.is-active){
+    filter: saturate(0.88) brightness(0.9);
+  }
+
+  .service-card:not(.is-active) .service-card__tag{
+    display: none;
+  }
+
+  .service-card:not(.is-active) h3{
+    font-size: 0.98rem;
+  }
+}
+
+@keyframes servicePop{
+  from{
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes serviceReveal{
+  from{
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

@@ -24,7 +24,7 @@ const EVENTS: EventItem[] = [
     type: "CQB Nocturno",
     slots: "30 Cupos",
     status: "abierto",
-    href: "https://wa.me/573057668729?text=Hola%2C%20quiero%20inscribirme%20a%20Shadow%20Strike",
+    href: "https://chat.whatsapp.com/GplVS3IddDlHUeK6al0HEF?mode=gi_t",
   },
  
 ];
