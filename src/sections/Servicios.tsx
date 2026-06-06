@@ -1,50 +1,57 @@
 import React, { useState } from "react";
 import "../styles/MarketingSections.css";
-import ballsBg from "../assets/images/servicios/balls.png";
+import TejoImg from "../assets/images/servicios/tejo.png";
+import BallsImg from "../assets/images/servicios/balls.png";
+import ParkImg from "../assets/images/servicios/park.png";
+import Cumple from "../assets/images/servicios/cumple.png";
 
-const SERVICES = [
+type Service = {
+  title: string;
+  text: string;
+  tag: string;
+  image?: string;
+};
+
+const SERVICES: Service[] = [
   {
     title: "Mini tejo",
-    text: "Una actividad adicional para seguir compartiendo después de la partida.",
-    icon: "◆",
-    tag: "Reto corto",
+    text: "Reto rápido para seguir compartiendo después de la partida.",
+    tag: "Actividad",
+    image: TejoImg,
   },
   {
     title: "Bumperballs",
-    text: "Diversión extra para grupos que quieren sumar una experiencia distinta.",
-    icon: "●",
-    tag: "Diversión",
-    bg: ballsBg,
+    text: "Diversión extra para grupos y celebraciones.",
+    tag: "Extra",
+    image: BallsImg,
   },
   {
     title: "Parqueadero gratuito",
-    text: "Llegas con tranquilidad y disfrutas el plan sin costos adicionales.",
-    icon: "▰",
-    tag: "Gratis",
+    text: "Llegas tranquilo. Sin costo adicional.",
+    tag: "Incluido",
+    image: ParkImg,
   },
   {
     title: "Zona verde",
-    text: "Espacio abierto para descansar, compartir y disfrutar el ambiente.",
-    icon: "✦",
+    text: "Espacio abierto para descansar y compartir.",
     tag: "Descanso",
   },
   {
     title: "Cumpleaños",
-    text: "Un espacio pensado para reuniones, grupos y fechas especiales.",
-    icon: "★",
+    text: "Zona para celebrar con tu grupo.",
     tag: "Celebración",
+    image: Cumple,
   },
-  
 ];
 
 const Servicios: React.FC = () => {
   const [activeService, setActiveService] = useState(0);
 
   return (
-    <section className="marketing-section services" aria-labelledby="services-title">
+    <section className="marketing-section services services-v2" aria-labelledby="services-title">
       <div className="section-heading">
-        <p className="eyebrow">Después de la partida</p>
-        <h2 id="services-title">Servicios para que el plan dure más</h2>
+        <p className="eyebrow">Más allá del juego</p>
+        <h2 id="services-title">Nuestros Servicios</h2>
       </div>
 
       <div className="service-list service-list--wide" role="list">
@@ -52,12 +59,12 @@ const Servicios: React.FC = () => {
           <button
             key={service.title}
             type="button"
-            className={`service-card ${index === activeService ? "is-active" : ""}`}
+            className={`service-card ${service.image ? "has-image" : ""} ${index === activeService ? "is-active" : ""}`}
+            style={service.image ? { "--service-image": `url(${service.image})` } as React.CSSProperties : undefined}
             onClick={() => setActiveService(index)}
             aria-pressed={index === activeService}
             role="listitem"
           >
-            <span className="service-card__icon" aria-hidden="true">{service.icon}</span>
             <span className="service-card__tag">{service.tag}</span>
             <h3>{service.title}</h3>
             <p>{service.text}</p>

@@ -1,6 +1,7 @@
 import Home from "./Home";
 import Campos from "./Campos";
 import Equipamiento from "./Equipamiento";
+import HidrogelArsenal from "./HidrogelArsenal";
 import Opiniones from "./Opiniones";
 import InstagramSection from "./Instagram";
 import WhatsAppFloat from "../components/UI/WhatsAppFloat";
@@ -37,16 +38,17 @@ const Principal = () => {
         
       </section>
 
-      <section className="screen">
-        <div className="container">
-          <Experiencia />
-        </div>
-      </section>
 
       <section className="screen">
         
          <Equipamiento></Equipamiento>
         
+      </section>
+
+      <section className="screen screen--flush">
+        <div className="container">
+          <HidrogelArsenal />
+        </div>
       </section>
 
       {/* <section className="screen">
@@ -66,6 +68,18 @@ const Principal = () => {
         </div>
       </section>
 
+      <section className="screen">
+        <div className="container">
+          <Experiencia />
+        </div>
+      </section>
+      
+      <section className="screen screen--flush">
+        <div className="container">
+          <TiposPartida />
+        </div>
+      </section>
+
      
 
       {/* SOBRE NOSOTROS (Navbar -> #sobre-nosotros) */}
@@ -75,11 +89,7 @@ const Principal = () => {
         </div>
       </section>
 
-      <section className="screen screen--flush">
-        <div className="container">
-          <TiposPartida />
-        </div>
-      </section>
+      
 
       <section className="screen">
         <div className="container">

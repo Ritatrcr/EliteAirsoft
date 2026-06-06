@@ -21,6 +21,11 @@ const Campos = () => {
           padding: 0rem 0 3rem 0;
         }
 
+        .campos-section__eyebrow{
+          display: none;
+          margin: 0;
+        }
+
         .campos-section__title{
           margin: 0;
           text-align: center;
@@ -64,11 +69,12 @@ const Campos = () => {
           .campos-section{
             width: 100vw;
             margin-left: calc(50% - 50vw);
-            padding: 1.85rem 0 2.1rem;
+            padding: 1.55rem 0 2.1rem;
             overflow: hidden;
             background:
+              radial-gradient(circle at 50% -4%, rgba(167,141,102,0.24), transparent 38%),
               radial-gradient(circle at 18% 8%, rgba(167,141,102,0.12), transparent 28%),
-              linear-gradient(180deg, #202222, #171818 76%, #111212);
+              linear-gradient(180deg, #202222 0%, #171818 76%, #111212);
             border-top: 1px solid rgba(167,141,102,0.14);
             border-bottom: 1px solid rgba(167,141,102,0.12);
           }
@@ -79,10 +85,24 @@ const Campos = () => {
             padding-inline: 0;
           }
 
+          .campos-section__eyebrow{
+            display: block;
+            margin: 0 0 0.35rem;
+            text-align: center;
+            color: var(--color-accent);
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+          }
+
           .campos-section__title{
-            font-size: clamp(2rem, 10vw, 2.75rem);
-            line-height: 0.95;
-            letter-spacing: 0.08em;
+            width: min(100% - 2rem, 430px);
+            margin-inline: auto;
+            font-size: clamp(2rem, 9vw, 2.65rem);
+            line-height: 0.96;
+            letter-spacing: 0.04em;
+            text-wrap: balance;
           }
 
           .campos-section__divider{
@@ -112,6 +132,7 @@ const Campos = () => {
       `}</style>
 
       <div className="container">
+        <p className="campos-section__eyebrow">Explora el terreno</p>
         <h2 className="campos-section__title">Nuestros Campos</h2>
         <div className="campos-section__divider" />
 

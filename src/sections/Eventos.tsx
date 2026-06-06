@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../components/UI/Button";
 import "../styles/Eventos.css";
 
 type EventStatus = "abierto" | "ultimos" | "cerrado";
@@ -28,12 +27,6 @@ const EVENTS: EventItem[] = [
   },
  
 ];
-
-const statusLabel: Record<EventStatus, string> = {
-  abierto: "Inscripciones abiertas",
-  ultimos: "Últimos lugares",
-  cerrado: "Cerrado",
-};
 
 const Eventos: React.FC = () => {
   return (
@@ -66,15 +59,20 @@ const Eventos: React.FC = () => {
             </div>
 
             <div className="ev-actions">
-              <span className={`ev-pill ev-pill--${e.status}`}>
-                {statusLabel[e.status]}
-              </span>
-
               <div className="ev-btnWrap">
-                <Button
-                  text="Inscribirse"
+                <button
+                  type="button"
+                  className="ev-iconBtn"
                   onClick={() => window.open(e.href, "_blank")}
-                />
+                  aria-label="Inscribirse a la partida abierta"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 19c0-2.2-1.8-4-4-4H8c-2.2 0-4 1.8-4 4" />
+                    <circle cx="9.5" cy="8" r="3.2" />
+                    <path d="M18 8v6" />
+                    <path d="M15 11h6" />
+                  </svg>
+                </button>
               </div>
             </div>
           </article>

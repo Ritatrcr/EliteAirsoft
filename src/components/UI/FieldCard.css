@@ -159,23 +159,7 @@
     overflow: hidden;
   }
 
-  .campo-card::before{
-    content: "Campo táctico";
-    position: absolute;
-    top: 0.88rem;
-    left: 0.9rem;
-    z-index: 3;
-    width: fit-content;
-    padding: 0.24rem 0.56rem;
-    border-radius: 999px;
-    color: rgba(20,22,22,0.94);
-    background: rgba(167,141,102,0.9);
-    font-size: 0.56rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    pointer-events: none;
-  }
+  
 
   .campo-card__title{
     order: 2;

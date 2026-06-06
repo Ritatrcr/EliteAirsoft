@@ -75,3 +75,10 @@ html, body, #root {
 .screen--flush{
   padding-top: 0;
 }
+
+/* Mobile: las secciones con fondo propio deben empezar flush, sin franja gris previa */
+@media (max-width: 640px){
+  .screen{
+    padding-top: 0 !important;
+  }
+}

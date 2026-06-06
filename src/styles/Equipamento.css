@@ -632,3 +632,10 @@
     width: 70px;
   }
 }
+
+/* Mobile: bajar encabezado dentro del mismo fondo */
+@media (max-width: 640px){
+  .equip-section{
+    padding-top: 2.55rem;
+  }
+}

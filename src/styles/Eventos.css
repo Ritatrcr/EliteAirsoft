@@ -487,3 +487,88 @@
 }
 
 
+
+/* Eventos: CTA compacto con icono */
+.ev-iconBtn{
+  width: 54px;
+  height: 54px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--color-bg-dark);
+  background: var(--color-accent);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.ev-iconBtn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.ev-iconBtn svg{
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 640px){
+  .ev-title{
+    white-space: nowrap;
+    font-size: clamp(1.72rem, 7.4vw, 2.15rem);
+    line-height: 1;
+  }
+
+  .ev-card{
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    min-height: 132px;
+    align-items: center;
+  }
+
+  .ev-actions{
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+    display: flex;
+    width: auto;
+  }
+
+  .ev-pill{
+    display: none !important;
+  }
+
+  .ev-iconBtn{
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+  }
+
+  .ev-iconBtn svg{
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@media (max-width: 640px){
+  .ev-card{
+    min-height: 0;
+    padding: 0.72rem 0.78rem;
+  }
+
+  .ev-iconBtn{
+    color: #080909;
+  }
+
+  .ev-main{
+    align-self: center;
+  }
+}
