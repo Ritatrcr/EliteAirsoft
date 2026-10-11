@@ -1,16 +1,16 @@
 import CampoCard from '../components/UI/FieldCard';
 
-import Fortaleza1 from '../assets/images/campos/Fortaleza.png';
-import Fortaleza2 from '../assets/images/campos/Fortaleza2.jpg';
-import Fortaleza3 from '../assets/images/campos/Fortaleza3.png';
+import Fortaleza1 from '../assets/optimized/fields/fortaleza-1.webp';
+import Fortaleza2 from '../assets/optimized/fields/fortaleza-2.webp';
+import Fortaleza3 from '../assets/optimized/fields/fortaleza-3.webp';
 
-import Town1 from '../assets/images/campos/Bus.png';
-import Town2 from '../assets/images/campos/Bus2.jpg';
-import Town3 from '../assets/images/campos/Bus3.jpg';
+import Town1 from '../assets/optimized/fields/town-1.webp';
+import Town2 from '../assets/optimized/fields/town-2.webp';
+import Town3 from '../assets/optimized/fields/town-3.webp';
 
-import CQB1 from '../assets/images/campos/CQB.png';
-import CQB2 from '../assets/images/campos/CQB2.jpg';
-import CQB3 from '../assets/images/campos/CQB3.jpg';
+import CQB1 from '../assets/optimized/fields/cqb-1.webp';
+import CQB2 from '../assets/optimized/fields/cqb-2.webp';
+import CQB3 from '../assets/optimized/fields/cqb-3.webp';
 
 const Campos = () => {
   return (

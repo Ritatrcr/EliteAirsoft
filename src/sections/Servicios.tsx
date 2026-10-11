@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/MarketingSections.css";
-import TejoImg from "../assets/images/servicios/tejo.png";
-import BallsImg from "../assets/images/servicios/balls.png";
-import ParkImg from "../assets/images/servicios/park.png";
-import Cumple from "../assets/images/servicios/cumple.png";
+import TejoImg from "../assets/optimized/services/mini-tejo.webp";
+import BallsImg from "../assets/optimized/services/bumperballs.webp";
+import ParkImg from "../assets/optimized/services/parking.webp";
+import Cumple from "../assets/optimized/services/birthday.webp";
 
 type Service = {
   title: string;
@@ -60,11 +60,15 @@ const Servicios: React.FC = () => {
             key={service.title}
             type="button"
             className={`service-card ${service.image ? "has-image" : ""} ${index === activeService ? "is-active" : ""}`}
-            style={service.image ? { "--service-image": `url(${service.image})` } as React.CSSProperties : undefined}
             onClick={() => setActiveService(index)}
             aria-pressed={index === activeService}
             role="listitem"
           >
+            {service.image ? (
+              <span className="service-card__media" aria-hidden="true">
+                <img src={service.image} alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </span>
+            ) : null}
             <span className="service-card__tag">{service.tag}</span>
             <h3>{service.title}</h3>
             <p>{service.text}</p>

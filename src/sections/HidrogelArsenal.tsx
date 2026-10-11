@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "../styles/HidrogelArsenal.css";
 
-import ReplicaM4 from "../assets/images/equipamiento/hidrogel/ReplicaM4.png";
-import Escopeta from "../assets/images/equipamiento/hidrogel/Escopeta.png";
-import ReplicaGrande from "../assets/images/equipamiento/hidrogel/Replica.png";
+import ReplicaM4 from "../assets/optimized/equipment/hydro-m4.webp";
+import Escopeta from "../assets/optimized/equipment/hydro-shotgun.webp";
+import ReplicaGrande from "../assets/optimized/equipment/hydro-large.webp";
 
 const WEAPONS = [
   {
@@ -99,6 +99,10 @@ export default function HidrogelArsenal() {
             src={weapon.image}
             alt={weapon.name}
             draggable={false}
+            width="900"
+            height="804"
+            loading="lazy"
+            decoding="async"
           />
 
           <div className="arsenal__weaponName">

@@ -78,6 +78,9 @@ const CampoCard = ({ title, images, description }: CampoCardProps) => {
                 alt={`${title} - foto ${i + 1} de ${slides.length}`}
                 className="campo-card__image"
                 loading="lazy"
+                decoding="async"
+                width="720"
+                height="720"
               />
             </div>
           ))}

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../styles/MarketingSections.css";
 
-import TunelImg from "../assets/images/Tunel2.jpg";
-import FogataImg from "../assets/images/Fogata.jpg";
-import FortalezaImg from "../assets/images/campos/Fortaleza2.jpg";
-import CqbImg from "../assets/images/campos/CQB3.jpg";
+import TunelImg from "../assets/optimized/experience/tunnel.webp";
+import FogataImg from "../assets/optimized/experience/night.webp";
+import FortalezaImg from "../assets/optimized/fields/fortaleza-2.webp";
+import CqbImg from "../assets/optimized/fields/cqb-3.webp";
 
 const MOMENTS = [
   { title: "Túneles", image: TunelImg, label: "Movimiento", desc: "Avanza, cubre y sorprende al rival." },
@@ -35,7 +35,7 @@ const Experiencia: React.FC = () => {
             aria-selected={index === active}
             role="tab"
           >
-            <img src={moment.image} alt="" />
+            <img src={moment.image} alt="" width="900" height="600" loading="lazy" decoding="async" />
             <div className="experience-tile__scrim" />
             <span>{moment.title}</span>
             <small>{moment.label}</small>

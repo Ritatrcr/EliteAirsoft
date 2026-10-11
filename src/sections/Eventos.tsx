@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Eventos.css";
+import { trackWhatsAppClick } from "../utils/analytics";
 
 type EventStatus = "abierto" | "ultimos" | "cerrado";
 
@@ -63,7 +64,15 @@ const Eventos: React.FC = () => {
                 <button
                   type="button"
                   className="ev-iconBtn"
-                  onClick={() => window.open(e.href, "_blank")}
+                  onClick={() => {
+                    trackWhatsAppClick({
+                      section: "eventos",
+                      button_text: "Inscribirse a la partida abierta",
+                      destination: "WhatsApp",
+                      service: e.title,
+                    });
+                    window.open(e.href, "_blank", "noopener,noreferrer");
+                  }}
                   aria-label="Inscribirse a la partida abierta"
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true">

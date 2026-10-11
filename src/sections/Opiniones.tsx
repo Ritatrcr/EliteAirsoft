@@ -3,8 +3,9 @@ import "../styles/Opiniones.css";
 
 import ManuelAvatar from "../assets/images/avatars/manuel.png";
 import SebastianAvatar from "../assets/images/avatars/sebastian.png";
-import ManuelPhoto1 from "../assets/images/reviews/manuel_1.png";
-import ManuelPhoto2 from "../assets/images/reviews/manuel_2.png";
+import ManuelPhoto1 from "../assets/optimized/reviews/manuel-1.webp";
+import ManuelPhoto2 from "../assets/optimized/reviews/manuel-2.webp";
+import { trackMapsClick } from "../utils/analytics";
 
 type Rating = 1 | 2 | 3 | 4 | 5;
 
@@ -115,6 +116,15 @@ function GoogleReviewButton({ href }: { href?: string }) {
       rel="noreferrer"
       aria-label="Ver comentario en Google Maps"
       title="Ver comentario en Google Maps"
+      onClick={(event) => {
+        event.stopPropagation();
+        trackMapsClick({
+          section: "opiniones",
+          button_text: "Ver comentario en Google Maps",
+          destination: href,
+          location: "Elite Airsoft Funza",
+        });
+      }}
     >
       {/* Icono estilo Google */}
       <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -144,7 +154,7 @@ function GoogleReviewButton({ href }: { href?: string }) {
 
 function Avatar({ author, avatarUrl }: { author: string; avatarUrl?: string }) {
   const initial = (author?.trim()?.[0] || "U").toUpperCase();
-  if (avatarUrl) return <img className="avatar avatar-img" src={avatarUrl} alt={author} />;
+  if (avatarUrl) return <img className="avatar avatar-img" src={avatarUrl} alt={author} width="150" height="150" loading="lazy" decoding="async" />;
   return <div className="avatar avatar-fallback">{initial}</div>;
 }
 
@@ -162,20 +172,28 @@ function ReviewCard({ review }: { review: Review }) {
   // ✅ Fotos solo cuando está expandido
   const shouldShowPhotos = photos.length > 0 && expanded;
 
+  const openReview = () => {
+    if (!review.googleMapsReviewUrl) return;
+    trackMapsClick({
+      section: "opiniones",
+      button_text: `Reseña de ${review.author}`,
+      destination: review.googleMapsReviewUrl,
+      location: "Elite Airsoft Funza",
+    });
+    window.open(review.googleMapsReviewUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
      <article
     className="review-card"
-    onClick={() => {
-      if (!review.googleMapsReviewUrl) return;
-      window.open(review.googleMapsReviewUrl, "_blank", "noopener,noreferrer");
-    }}
+    onClick={openReview}
     role="link"
     tabIndex={0}
     onKeyDown={(e) => {
       if (!review.googleMapsReviewUrl) return;
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        window.open(review.googleMapsReviewUrl, "_blank", "noopener,noreferrer");
+        openReview();
       }
     }}
   >
@@ -209,6 +227,9 @@ function ReviewCard({ review }: { review: Review }) {
             src={src}
             alt={`Foto ${idx + 1} de la reseña`}
             loading="lazy"
+            decoding="async"
+            width="500"
+            height="746"
           />
         ))}
       </div>
@@ -248,8 +269,13 @@ const DEFAULT_SUMMARY: ReviewsSummary = {
 
 function MapCard() {
   const isOpenNow = () => {
-    const now = new Date();
-    const h = now.getHours();
+    const h = Number(
+      new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Bogota",
+        hour: "2-digit",
+        hour12: false,
+      }).format(new Date())
+    );
     // Abierto: 08:00 (incl) hasta 20:00 (excl)
     return h >= 8 && h < 20;
   };
@@ -267,7 +293,7 @@ function MapCard() {
       <div className="map-card__header">
         <div className="map-card__title">Ubicación</div>
         <div className="map-card__sub">
-          Carrera 12, Funza, Ceuta, Funza, Cundinamarca
+          Carrera 12, Ceuta, Funza, Cundinamarca
         </div>
       </div>
 
@@ -286,6 +312,12 @@ function MapCard() {
           target="_blank"
           rel="noreferrer"
           aria-label="Abrir en Google Maps"
+          onClick={() => trackMapsClick({
+            section: "ubicacion",
+            button_text: "Abrir en Google Maps",
+            destination: MAPS_URL,
+            location: "Elite Airsoft Funza",
+          })}
         />
         
       </div>
@@ -313,55 +345,54 @@ const Opiniones: React.FC<OpinionesProps> = ({
   const percent = (count: number) => `${clamp((count / total) * 100, 0, 100)}%`;
 
   return (
-      <div className="opiniones-container">
-        <div className="opiniones-layout">
-          {/* IZQUIERDA: MAPA */}
-          <aside className="opiniones-left">
-            <MapCard />
-          </aside>
+    <section className="opiniones-container">
+      <div className="opiniones-layout">
+        {/* IZQUIERDA: MAPA */}
+        <aside className="opiniones-left">
+          <MapCard />
+        </aside>
 
-          {/* DERECHA: TODO lo tuyo */}
-          <div className="opiniones-right">
-            
+        {/* DERECHA: TODO lo tuyo */}
+        <div className="opiniones-right">
 
-            <div className="opiniones-summary">
-              <div className="opiniones-bars" aria-label="Distribución de calificaciones">
-                {[5, 4, 3, 2, 1].map((s) => {
-                  const star = s as Rating;
-                  const count = activeSummary.distribution[star] ?? 0;
-                  return (
-                    <div className="bar-row" key={s}>
-                      <div className="bar-label">{s}</div>
-                      <div
-                        className="bar-track"
-                        role="progressbar"
-                        aria-valuenow={count}
-                        aria-valuemin={0}
-                        aria-valuemax={activeSummary.total}
-                      >
-                        <div className="bar-fill" style={{ width: percent(count) }} />
-                      </div>
-                      <div className="bar-count">{count}</div>
+          <div className="opiniones-summary">
+            <div className="opiniones-bars" aria-label="Distribución de calificaciones">
+              {[5, 4, 3, 2, 1].map((s) => {
+                const star = s as Rating;
+                const count = activeSummary.distribution[star] ?? 0;
+                return (
+                  <div className="bar-row" key={s}>
+                    <div className="bar-label">{s}</div>
+                    <div
+                      className="bar-track"
+                      role="progressbar"
+                      aria-valuenow={count}
+                      aria-valuemin={0}
+                      aria-valuemax={activeSummary.total}
+                    >
+                      <div className="bar-fill" style={{ width: percent(count) }} />
                     </div>
-                  );
-                })}
-              </div>
-
-              <div className="opiniones-score">
-                <div className="score-number">{activeSummary.average.toFixed(1)}</div>
-                <Stars value={activeSummary.average} size={20} />
-                <div className="score-total">{activeSummary.total} opiniones</div>
-              </div>
+                    <div className="bar-count">{count}</div>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="reviews-grid">
-              {reviews.map((r) => (
-                <ReviewCard key={r.id} review={r} />
-              ))}
+            <div className="opiniones-score">
+              <div className="score-number">{activeSummary.average.toFixed(1)}</div>
+              <Stars value={activeSummary.average} size={20} />
+              <div className="score-total">{activeSummary.total} opiniones</div>
             </div>
+          </div>
+
+          <div className="reviews-grid">
+            {reviews.map((r) => (
+              <ReviewCard key={r.id} review={r} />
+            ))}
           </div>
         </div>
       </div>
+    </section>
   );
 };
 

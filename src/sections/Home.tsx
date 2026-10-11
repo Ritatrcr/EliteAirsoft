@@ -1,9 +1,7 @@
 import Button from '../components/UI/Button';
-import Banner from '../assets/images/Banner.png';
-
-import Mira from '../assets/images/Mira.png';
-import Background from '../assets/images/Background.png'; 
-import MobileBackground from '../assets/images/Mobile.png';
+import BannerSmall from '../assets/optimized/banner-360.webp';
+import BannerLarge from '../assets/optimized/banner-720.webp';
+import Mira from '../assets/optimized/mira.webp';
 import { openReservationWhatsApp } from '../utils/whatsapp';
 
 
@@ -30,19 +28,21 @@ const Home = () => {
           
         }
 
-        .home__hero::before {
-          content: '';
+        .home__media {
           position: absolute;
-          top: 0;
-          left: 0;
+          inset: 0;
           width: 100%;
           height: 100%;
-          background-image: url(${Background});
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
           opacity: 0.7;
           z-index: 0;
+        }
+
+        .home__media img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+          object-position: center;
         }
 
         .home__banner {
@@ -140,16 +140,13 @@ const Home = () => {
     isolation: isolate;
   }
 
-  .home__hero::before {
-    background-image: url(${MobileBackground});
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+  .home__media {
     opacity: 1;
+  }
+
+  .home__media img {
+    object-position: center top;
     transform: scale(1.04);
-    animation:
-      cameraFocus 1250ms steps(5, end) both,
-      mobileHeroDrift 9s 1250ms ease-in-out infinite alternate;
   }
 
   .home__hero::after {
@@ -345,14 +342,12 @@ const Home = () => {
     transform: translateY(80px);
   }
 
-  .home__title-bottom,
   .home__content > p,
   .home__content > .btn {
     display: none;
   }
 
   .home__mobile-kicker,
-  .home__mobile-title,
   .home__mobile-actions {
     display: revert;
   }
@@ -373,10 +368,10 @@ const Home = () => {
     transform: translateY(100px);
   }
 
-  .home__mobile-title {
+  .home__title-bottom {
     margin: 0;
     color: #f7f1df;
-    font-size: clamp(2.05rem, 9vw, 2.85rem);
+    font-size: clamp(1.9rem, 8vw, 2.65rem);
     line-height: 1.03;
     letter-spacing: 0;
     font-weight: 700;
@@ -385,11 +380,6 @@ const Home = () => {
     text-wrap: balance;
     text-shadow: 0 16px 40px rgba(0,0,0,0.78);
     animation: fadeUp 640ms 80ms ease both;
-  }
-
-  .home__mobile-title span {
-    display: block;
-    color: #f7f1df;
   }
 
   .home__mobile-copy {
@@ -528,32 +518,82 @@ const Home = () => {
       `}</style>
 
       <div className="home__hero">
-        <img src={Banner} alt="Banner Elite Airsoft" className="home__banner" />
+        <picture className="home__media" aria-hidden="true">
+          <source
+            media="(max-width: 767px)"
+            type="image/avif"
+            srcSet="/images/hero/elite-airsoft-funza-mobile-640.avif 640w, /images/hero/elite-airsoft-funza-mobile-960.avif 960w, /images/hero/elite-airsoft-funza-mobile-1280.avif 1280w"
+            sizes="100vw"
+          />
+          <source
+            media="(max-width: 767px)"
+            type="image/webp"
+            srcSet="/images/hero/elite-airsoft-funza-mobile-640.webp 640w, /images/hero/elite-airsoft-funza-mobile-960.webp 960w, /images/hero/elite-airsoft-funza-mobile-1280.webp 1280w"
+            sizes="100vw"
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/avif"
+            srcSet="/images/hero/elite-airsoft-funza-desktop-1280.avif 1280w, /images/hero/elite-airsoft-funza-desktop-1920.avif 1920w"
+            sizes="100vw"
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/webp"
+            srcSet="/images/hero/elite-airsoft-funza-desktop-1280.webp 1280w, /images/hero/elite-airsoft-funza-desktop-1920.webp 1920w"
+            sizes="100vw"
+          />
+          <img
+            src="/images/hero/elite-airsoft-funza-desktop-1280.webp"
+            alt=""
+            width="1920"
+            height="1056"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
+        <img
+          src={BannerSmall}
+          srcSet={`${BannerSmall} 360w, ${BannerLarge} 720w`}
+          sizes="(max-width: 767px) 250px, 50vw"
+          width="892"
+          height="949"
+          alt="Elite Airsoft"
+          className="home__banner"
+          loading="eager"
+        />
         <span className="home__scanline" aria-hidden="true" />
         <span className="home__gold-glow" aria-hidden="true" />
         <span className="home__focus-lock" aria-hidden="true"><span /></span>
         <span className="home__hud" aria-hidden="true" />
         <div className="home__content">
-          <h1 className="home__title-bottom">UNA EXPERIENCIA ÚNICA</h1>
+          <h1 className="home__title-bottom">Campo de airsoft y gelsoft en Funza</h1>
           <p>
-            Bienvenido a Elite Airsoft, donde la estrategia, la adrenalina y el trabajo en equipo
-            se convierten en una experiencia inolvidable.
+            Vive partidas de airsoft y gelsoft en Funza, Cundinamarca, cerca de Bogotá, con campos
+            para estrategia, adrenalina y trabajo en equipo.
           </p>
           <Button
             text="RESERVA YA!"
-            onClick={() => openReservationWhatsApp("reserva general")}
+            onClick={() => openReservationWhatsApp("reserva general", {
+              section: "hero",
+              buttonText: "RESERVA YA!",
+              service: "reserva general",
+            })}
           />
 
-          <div className="home__mobile-kicker">Los mejores campos de Colombia</div>
-          <h1 className="home__mobile-title">una experiencia <span>única</span></h1>
+          <div className="home__mobile-kicker">Elite Airsoft · Funza, Cundinamarca</div>
           <div className="home__mobile-actions">
             <Button
               text="RESERVA YA!"
-              onClick={() => openReservationWhatsApp("reserva general desde inicio móvil")}
+              onClick={() => openReservationWhatsApp("reserva general", {
+                section: "hero_mobile",
+                buttonText: "RESERVA YA!",
+                service: "reserva general",
+              })}
             />
           </div>
         </div>
-        <img src={Mira} alt="Mira decorativa" className="home__mira" />
+        <img src={Mira} alt="" aria-hidden="true" width="200" height="427" className="home__mira" decoding="async" />
       </div>
       
     </section>

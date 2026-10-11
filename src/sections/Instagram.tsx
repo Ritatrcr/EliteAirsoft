@@ -5,21 +5,26 @@ import Button from "../components/UI/Button"; // ✅ ajusta la ruta si tu Button
 
 
 // ✅ Reemplaza estos imports por tus videos reales
-import Story01 from "../assets/videos/instagram/story01.MOV";
-import Story02 from "../assets/videos/instagram/story02.mp4";
-import Story03 from "../assets/videos/instagram/story03.MOV";
+import Story01 from "../assets/optimized/videos/story-01.mp4";
+import Story02 from "../assets/optimized/videos/story-02.mp4";
+import Story03 from "../assets/optimized/videos/story-03.mp4";
+import Story01Poster from "../assets/optimized/videos/story-01-poster.webp";
+import Story02Poster from "../assets/optimized/videos/story-02-poster.webp";
+import Story03Poster from "../assets/optimized/videos/story-03-poster.webp";
 import { FiVolumeX, FiVolume2 } from "react-icons/fi";
+import { trackEvent, trackInstagramClick } from "../utils/analytics";
 
 
 // ✅ OPCIONAL: pon una foto de perfil local (recomendado)
 // y descomenta el import.
-import ProfileImg from "../assets/images/instagram/profile.png";
+import ProfileImg from "../assets/optimized/social/instagram-profile.webp";
 
 type Story = {
   id: string;
   user: string;
   label?: string;
   src: string;
+  poster: string;
   durationMs?: number;
   url: string; // ✅
 };
@@ -59,9 +64,9 @@ function formatNumber(n: number) {
 export default function InstagramSection() {
   const stories: Story[] = useMemo(
     () => [
-  { id: "s1", user: IG_INFO.handle, label: "CQB", src: Story01, durationMs: 6500, url: INSTAGRAM_PROFILE_URL },
-  { id: "s2", user: IG_INFO.handle, label: "Dinámicas", src: Story02, durationMs: 6500, url: INSTAGRAM_PROFILE_URL },
-  { id: "s3", user: IG_INFO.handle, label: "Gelsoft", src: Story03, durationMs: 6500, url: "https://www.instagram.com/p/DRnzc8kjW0P/" },
+  { id: "s1", user: IG_INFO.handle, label: "CQB", src: Story01, poster: Story01Poster, durationMs: 6500, url: INSTAGRAM_PROFILE_URL },
+  { id: "s2", user: IG_INFO.handle, label: "Dinámicas", src: Story02, poster: Story02Poster, durationMs: 6500, url: INSTAGRAM_PROFILE_URL },
+  { id: "s3", user: IG_INFO.handle, label: "Gelsoft", src: Story03, poster: Story03Poster, durationMs: 6500, url: "https://www.instagram.com/p/DRnzc8kjW0P/" },
   ],
     []
   );
@@ -72,6 +77,7 @@ export default function InstagramSection() {
   const rootRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const trackedVideoPlays = useRef(new Set<string>());
   const [inView, setInView] = useState(false);
 
 useEffect(() => {
@@ -148,7 +154,9 @@ useEffect(() => {
       <div className="container ig-container">
         <div className="ig-header">
           <div className="ig-titleWrap">
-            
+            <p className="eyebrow">Conoce el campo en acción</p>
+            <h2 className="ig-title">Elite Airsoft en Instagram</h2>
+            <p className="ig-subtitle">Historias de partidas, campos CQB y experiencias de gelsoft en Funza.</p>
           </div>
 
           
@@ -177,6 +185,11 @@ useEffect(() => {
                       data-pos={pos}
                     onClick={() => {
                       if (i === active) {
+                        trackInstagramClick({
+                          section: "instagram_stories",
+                          button_text: s.label ?? `Historia ${i + 1}`,
+                          destination: stories[i].url,
+                        });
                         window.open(stories[i].url, "_blank", "noopener,noreferrer");
                       } else {
                         setActive(i);
@@ -188,7 +201,7 @@ useEffect(() => {
                       <div className="ig-cardInner">
                         <div className="ig-chrome">
                           <div className="ig-user">
-                            <img className="ig-avatarImg" src={ProfileImg} alt="" />
+                            <img className="ig-avatarImg" src={ProfileImg} alt="" width="192" height="192" loading="lazy" decoding="async" />
                             <div className="ig-userText">
                               <span className="ig-handle">@{s.user}</span>
                               {s.label ? <span className="ig-label">{s.label}</span> : null}
@@ -228,11 +241,21 @@ useEffect(() => {
                           <video
                             ref={(n) => { videoRefs.current[i] = n; }}
                             className="ig-video"
-                            src={s.src}
+                            src={inView && isActive ? s.src : undefined}
+                            poster={s.poster}
                             playsInline
                             muted={muted}
                             loop
-                            preload="metadata"
+                            preload={isActive ? "metadata" : "none"}
+                            onPlay={() => {
+                              if (trackedVideoPlays.current.has(s.id)) return;
+                              trackedVideoPlays.current.add(s.id);
+                              trackEvent("video_play", {
+                                section: "instagram_stories",
+                                button_text: s.label ?? `Historia ${i + 1}`,
+                                service: s.label,
+                              });
+                            }}
                           />
                           <div className="ig-vignette" aria-hidden="true" />
                         </div>
@@ -270,7 +293,7 @@ useEffect(() => {
               <div className="ig-infoTop">
                 {/* Si usas imagen local, reemplaza el div por <img ... /> */}
                 {/* <img className="ig-profileImg" src={ProfileImg} alt="Perfil Instagram" /> */}
-                    <img className="ig-profileImg" src={ProfileImg} alt="Perfil Instagram" />
+                    <img className="ig-profileImg" src={ProfileImg} alt="Perfil de Elite Airsoft en Instagram" width="192" height="192" loading="lazy" decoding="async" />
 
                 <div className="ig-infoIdentity">
                   <div className="ig-infoName">{IG_INFO.displayName}</div>
@@ -305,6 +328,11 @@ useEffect(() => {
                 <Button
                   text="¡Síguenos en Instagram!"
                   onClick={() => {
+                    trackInstagramClick({
+                      section: "instagram_profile",
+                      button_text: "¡Síguenos en Instagram!",
+                      destination: INSTAGRAM_PROFILE_URL,
+                    });
                     window.open(INSTAGRAM_PROFILE_URL, "_blank", "noopener,noreferrer");
                   }}
                 />

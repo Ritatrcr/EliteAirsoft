@@ -4,18 +4,18 @@ import EquipNode from "../components/Equipamiento/EquipNode";
 
 import "../styles/Equipamento.css";
 
-import JugadorImg from "../assets/images/equipamiento/Jugador.png";
-import JugadorGelsoftImg from "../assets/images/equipamiento/Persona Gelsoft.png";
+import JugadorImg from "../assets/optimized/equipment/player-airsoft.webp";
+import JugadorGelsoftImg from "../assets/optimized/equipment/player-gelsoft.webp";
 
-import CascoImg from "../assets/images/equipamiento/Casco.png";
-import ChalecoImg from "../assets/images/equipamiento/Chaleco.png";
-import GuantesImg from "../assets/images/equipamiento/Guantes.png";
-import ReplicaImg from "../assets/images/equipamiento/Replica.png";
-import CargadorBBsImg from "../assets/images/equipamiento/Cargador.png";
-import ReplicaGelsoftImg from "../assets/images/equipamiento/Arma de hidrogel.png";
-import GafasProteccionImg from "../assets/images/equipamiento/Gafas de protección.png";
-import BalasHidrogelImg from "../assets/images/equipamiento/Balas hidrogel.png";
-import ChalecoHidrogelImg from "../assets/images/equipamiento/chalecoHidrogel.png";
+import CascoImg from "../assets/optimized/equipment/helmet.webp";
+import ChalecoImg from "../assets/optimized/equipment/vest.webp";
+import GuantesImg from "../assets/optimized/equipment/gloves.webp";
+import ReplicaImg from "../assets/optimized/equipment/replica.webp";
+import CargadorBBsImg from "../assets/optimized/equipment/magazine.webp";
+import ReplicaGelsoftImg from "../assets/optimized/equipment/gel-blaster.webp";
+import GafasProteccionImg from "../assets/optimized/equipment/goggles.webp";
+import BalasHidrogelImg from "../assets/optimized/equipment/gel-balls.webp";
+import ChalecoHidrogelImg from "../assets/optimized/equipment/gel-vest.webp";
 
 type EquipMode = "airsoft" | "gelsoft";
 
@@ -109,6 +109,8 @@ const Equipamiento: React.FC = () => {
                   alt="Jugador equipado"
                   loading="lazy"
                   decoding="async"
+                  width="600"
+                  height="720"
                 />
               </div>
 

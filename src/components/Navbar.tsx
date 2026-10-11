@@ -1,30 +1,9 @@
 import { useState } from 'react';
 import './Navbar.css';
-import LogoHorizontal from '../assets/images/LogoHorizontal.png';
-
-const NAV_IDS = {
-  inicio: 'inicio',
-  campos: 'campos',
-  planes: 'planes',
-  sobre: 'sobre-nosotros',
-  contacto: 'contactanos',
-} as const;
+import LogoHorizontal from '../assets/optimized/logo-horizontal.webp';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const scrollTo = (id: string) => {
-    if (id === NAV_IDS.inicio) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setMenuOpen(false);
-      return;
-    }
-
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setMenuOpen(false);
-  };
 
   return (
     <header className={`navbar ${menuOpen ? 'is-open' : ''}`}>
@@ -42,15 +21,17 @@ const Navbar = () => {
       </button>
 
       <div className="navbar__logo">
-        <img src={LogoHorizontal} alt="Elite Airsoft" />
+        <a href="#inicio" onClick={() => setMenuOpen(false)} aria-label="Elite Airsoft, ir al inicio">
+          <img src={LogoHorizontal} alt="Elite Airsoft" width="252" height="84" />
+        </a>
       </div>
 
       <nav id="main-navigation" className="navbar__links" aria-label="Navegación principal">
-        <button type="button" onClick={() => scrollTo(NAV_IDS.inicio)}>Inicio</button>
-        <button type="button" onClick={() => scrollTo(NAV_IDS.campos)}>Campos</button>
-        <button type="button" onClick={() => scrollTo(NAV_IDS.planes)}>Planes</button>
-        <button type="button" onClick={() => scrollTo(NAV_IDS.sobre)}>Sobre nosotros</button>
-        <button type="button" onClick={() => scrollTo(NAV_IDS.contacto)}>Contáctanos</button>
+        <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
+        <a href="#campos" onClick={() => setMenuOpen(false)}>Campos</a>
+        <a href="#planes" onClick={() => setMenuOpen(false)}>Planes</a>
+        <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+        <a href="#contactanos" onClick={() => setMenuOpen(false)}>Contáctanos</a>
       </nav>
     </header>
   );

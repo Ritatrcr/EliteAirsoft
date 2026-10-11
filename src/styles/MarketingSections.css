@@ -1591,12 +1591,25 @@
 
 /* Servicios: fondos e iconos más descriptivos */
 .service-card.has-image{
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.78)),
-    var(--service-image),
-    rgba(255,255,255,0.035);
-  background-size: cover;
-  background-position: center;
+  background: rgba(255,255,255,0.035);
+}
+
+.service-card__media,
+.service-card__media::after{
+  position: absolute;
+  inset: 0;
+}
+
+.service-card__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.service-card__media::after{
+  content: "";
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.78));
 }
 
 .service-card.has-image::after{
@@ -1638,21 +1651,13 @@
   }
 
   .service-card.has-image{
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.8)),
-      var(--service-image),
-      rgba(255,255,255,0.035);
-    background-size: cover;
-    background-position: center;
+    background: rgba(255,255,255,0.035);
   }
 
   .service-card.has-image.is-active{
     background:
       radial-gradient(circle at 16% 16%, rgba(167,141,102,0.2), transparent 34%),
-      linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.82)),
-      var(--service-image);
-    background-size: cover;
-    background-position: center;
+      linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.42));
   }
 
   .service-card__icon{

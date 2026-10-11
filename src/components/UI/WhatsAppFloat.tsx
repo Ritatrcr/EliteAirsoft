@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import "./WhatsAppFloat.css";
+import { trackWhatsAppClick } from "../../utils/analytics";
 
 type WhatsAppFloatProps = {
   phone: string; // Ej: "573001112233" (sin +, sin espacios)
@@ -32,6 +33,11 @@ export default function WhatsAppFloat({
             href={href}
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackWhatsAppClick({
+              section: "floating_button",
+              button_text: tooltip,
+              destination: "WhatsApp",
+            })}
           >
             <span className="wa-inner" aria-hidden="true">
               <span className="wa-filled" />

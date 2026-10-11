@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../styles/MarketingSections.css";
 
-import FortalezaImg from "../assets/images/campos/Fortaleza3.png";
-import CqbImg from "../assets/images/campos/CQB2.jpg";
-import TownImg from "../assets/images/campos/Bus2.jpg";
-import TunelImg from "../assets/images/Tunel2.jpg";
-import FogataImg from "../assets/images/Fogata.jpg";
-import ReplicaImg from "../assets/images/equipamiento/Replica.png";
+import FortalezaImg from "../assets/optimized/fields/fortaleza-3.webp";
+import CqbImg from "../assets/optimized/fields/cqb-2.webp";
+import TownImg from "../assets/optimized/fields/town-2.webp";
+import TunelImg from "../assets/optimized/experience/tunnel.webp";
+import FogataImg from "../assets/optimized/experience/night.webp";
+import ReplicaImg from "../assets/optimized/equipment/replica.webp";
 
 const MATCH_TYPES = [
   {
@@ -73,6 +73,7 @@ const TiposPartida: React.FC = () => {
         <div className="game-mode-inner game-mode-inner--centered">
           <div className="section-heading game-mode-heading">
             <p className="eyebrow">Modalidades</p>
+            <h2 id="match-types-title">Tipos de partida</h2>
           </div>
 
           <div className="mission-stage">
@@ -86,7 +87,7 @@ const TiposPartida: React.FC = () => {
             </div>
 
             <article className="mission-focus">
-              <img src={match.image} alt="" />
+              <img src={match.image} alt="" width="900" height="900" loading="lazy" decoding="async" />
               <div className="mission-focus__scrim" />
               <div className="mission-focus__content">
                 <div className="game-mode-chip">Misión {String(active + 1).padStart(2, "0")}</div>
@@ -128,7 +129,7 @@ const TiposPartida: React.FC = () => {
               aria-label="Anterior"
               disabled={!canPrev}
             >
-              <img src={ReplicaImg} alt="" aria-hidden="true" />
+              <img src={ReplicaImg} alt="" aria-hidden="true" width="640" height="427" loading="lazy" decoding="async" />
             </button>
 
             <div className="mission-progress mission-progress--numbered">
@@ -150,7 +151,7 @@ const TiposPartida: React.FC = () => {
               aria-label="Siguiente"
               disabled={!canNext}
             >
-              <img src={ReplicaImg} alt="" aria-hidden="true" />
+              <img src={ReplicaImg} alt="" aria-hidden="true" width="640" height="427" loading="lazy" decoding="async" />
             </button>
           </div>
         </div>

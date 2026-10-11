@@ -1,11 +1,15 @@
 import Layout from './components/Layout';
+import Analytics from './components/Analytics';
 import Principal from './sections/Principal';
 
 const App = () => {
   return (
-    <Layout>
-      <Principal />
-    </Layout>
+    <>
+      <Analytics />
+      <Layout>
+        <Principal />
+      </Layout>
+    </>
   );
 };
 

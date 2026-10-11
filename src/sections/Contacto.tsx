@@ -1,9 +1,8 @@
 import React from "react";
 import "../styles/Contacto.css";
 import Button from "../components/UI/Button";
-
-const WHATSAPP_URL =
-  "https://wa.me/573057668729?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Elite%20Airsoft";
+import { trackPhoneClick } from "../utils/analytics";
+import { openReservationWhatsApp } from "../utils/whatsapp";
 
 const Contacto: React.FC = () => {
   return (
@@ -18,8 +17,24 @@ const Contacto: React.FC = () => {
         </div>
 
         <div className="contact-actions">
-          <Button text="Hablar por WhatsApp" onClick={() => window.open(WHATSAPP_URL, "_blank")} />
-          <a href="tel:+573057668729">305 766 8729</a>
+          <Button
+            text="Hablar por WhatsApp"
+            onClick={() => openReservationWhatsApp("consulta desde contacto", {
+              section: "contacto",
+              buttonText: "Hablar por WhatsApp",
+              service: "reserva general",
+            })}
+          />
+          <a
+            href="tel:+573057668729"
+            onClick={() => trackPhoneClick({
+              section: "contacto",
+              button_text: "305 766 8729",
+              destination: "tel:+573057668729",
+            })}
+          >
+            305 766 8729
+          </a>
         </div>
       </div>
     </section>

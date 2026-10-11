@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 /* Reset básico */
 * {
     margin: 0;
@@ -47,12 +55,13 @@
 }
 
 
-/* Alternado claro/oscuro para distinguir secciones */
-.screen:nth-of-type(even) {
+/* Alternado claro/oscuro; el inicio y campos comparten el tono inicial. */
+.screen:nth-of-type(odd):not(:first-of-type) {
   background-color: var(--color-bg-dark);
 }
 
-.screen:nth-of-type(odd) {
+.screen:first-of-type,
+.screen:nth-of-type(even) {
   background-color: var(--color-bg);
 }
 
@@ -72,13 +81,40 @@ html, body, #root {
   align-items: center;
 }
 
+#inicio,
+#campos,
+#planes,
+#servicios,
+#contactanos{
+  scroll-margin-top: var(--navbar-height);
+}
+
 .screen--flush{
   padding-top: 0;
+}
+
+.deferred-placeholder {
+  min-height: min(68vh, 620px);
 }
 
 /* Mobile: las secciones con fondo propio deben empezar flush, sin franja gris previa */
 @media (max-width: 640px){
   .screen{
     padding-top: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html,
+  .app-scroll{
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
